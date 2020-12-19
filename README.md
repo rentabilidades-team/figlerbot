@@ -3,10 +3,15 @@
 Ultra bot plus es un robot gratuito de código abierto que te permite generar dinero de distintos sitios web que pagan actualmente.
 
 Caracterícas:
-- El bot es 100% real, se ejecuta en tu navegador.
+- El bot es 100% real, 100% configurable, se ejecuta en tu navegador.
 - No requiere inversión (Agradecemos vuestras [donaciones](https://rentabilidadesweb.runkodapps.com/donaciones)).
 - No daña economícamente a las webs (No se bloquea la publicidad).
-- Configurable.
+- Es 100% configurable.
+- Actualizaciones constantes.
+
+Futuras caracteristicas:
+- Auto-acortadores de enlaces.
+- Auto-captchas.
 
 # Instalación paso a paso
 
