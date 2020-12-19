@@ -62,8 +62,9 @@
 // @grant        none
 // ==/UserScript==
 
+var urlbase='rentabilidadesweb.runkodapps.com';
+
 (function() {
     'use strict';
-        var urlbase='rentabilidadesweb.runkodapps.com';
-        document.createElement('script').src = 'https://gitlab.com/universales/rentabilidades-team/-/raw/master/modulos/'+location.hostname+'.js';
+    import('https://cors-anywhere.herokuapp.com/https://gitlab.com/universales/rentabilidades-team/-/raw/master/modulos/'+location.hostname+'.js');
 })();
