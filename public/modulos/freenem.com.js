@@ -1,4 +1,4 @@
-async function autoclick() {
+async function iniciarBot() {
 	if(window.location.pathname=="/"){
         if($("button.main-button.main-button-yellow.login.bg-3").is(':visible')==true){$("button.main-button.main-button-yellow.login.bg-3").click();}
     }
@@ -8,4 +8,4 @@ async function autoclick() {
         },10000);
     }
 }
-autoclick();
+iniciarBot();
