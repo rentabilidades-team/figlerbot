@@ -1,5 +1,5 @@
 async function autoclick() {
-	if(window.location.pathname.indexOf("/")>=0){
+	if(window.location.pathname.indexOf("/")==0){
         if($("button.main-button.main-button-yellow.login.bg-3").is(':visible')==true){$("button.main-button.main-button-yellow.login.bg-3").click();}
     }
     if(window.location.pathname.indexOf("/free")>=0){
