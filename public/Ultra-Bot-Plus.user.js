@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Ultra Bot Plus
-// @namespace    https://gitlab.com/universales/rentabilidades-team
+// @namespace    https://rentabilidadesweb.runkodapps.com/
 // @version      0.3
 // @description  Complemento para el navegador del Ultra Bot Plus, aumenta tus ganancias.
 // @author       Rentabilidades Team
