@@ -4,7 +4,12 @@
 // @version      0.2.3
 // @description  Complemento para el navegador del Ultra Bot Plus, aumenta tus ganancias.
 // @author       Rentabilidades Team
-// @updateURL    
+// @updateURL    https://gitlab.com/universales/rentabilidades-team/-/raw/master/Ultra-Bot-Plus.js
+// @supportURL   https://gitlab.com/universales/rentabilidades-team/-/issues
+// @contributionURL https://rentabilidadesweb.runkodapps.com/donaciones/
+// @license      Mit
+// @compatible   Compatible con firefox, chrome, opera y safari.
+
 
 // @include      http*://rentabilidadesweb.runkodapps.com/*
 // @include      http*://faucetpay.io/*
@@ -59,5 +64,6 @@
 
 (function() {
     'use strict';
-     document.createElement('script').src = '/modulos/'+location.hostname+'.js';
+        var urlbase='rentabilidadesweb.runkodapps.com';
+        document.createElement('script').src = 'https://gitlab.com/universales/rentabilidades-team/-/raw/master/modulos/'+location.hostname+'.js';
 })();
