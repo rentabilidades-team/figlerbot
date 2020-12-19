@@ -17,7 +17,7 @@ Futuras caracteristicas:
 
 1 - Instala el complemento "[Tampermonkey](https://www.tampermonkey.net/)" en tu navegador.
 
-2 - Instala [nuestro script](https://gitlab.com/universales/rentabilidades-team/-/raw/master/Ultra-Bot-Plus.user.js) en tu ordenador.
+2 - Instala [nuestro script](https://universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js) en tu ordenador.
 
 # Ejecución del bot
 
