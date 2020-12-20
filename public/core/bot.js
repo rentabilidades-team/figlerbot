@@ -1,4 +1,43 @@
-/* Funciones Base */
+/* Valores por defecto */
+var coloricono='red', modulos = [];
+
+/* Funcionamiento del Bot */
+
+function bloquearSalida(valor) {
+  if(valor==true){
+    window.onbeforeunload = function (e) {var message = "¿Estas seguro de que deseas detener el bot?",e = e || window.event;if (e) {e.returnValue = message;}return message;};
+  }else{
+    window.onbeforeunload = '';
+  }
+}
+
+function estado_general_bot(coloricono) {
+    document.getElementById('iconoestadogeneral').style.backgroundColor = coloricono;
+    if(coloricono=='green'){
+      document.getElementById('iconoestadogeneral').disabled = false;
+      document.getElementById('btnstartstopbot').value='🤖 Detener Bot';
+      bloquearSalida(true);
+    }
+    if(coloricono=='yellow'){
+      document.getElementById('iconoestadogeneral').disabled = true;
+      document.getElementById('btnstartstopbot').value='🤖 Iniciando modulos del Bot';
+      bloquearSalida(true);
+    }
+    if(coloricono=='red'){
+      document.getElementById('iconoestadogeneral').disabled = false;
+      document.getElementById('btnstartstopbot').value='🤖 Iniciar Bot';
+      bloquearSalida(false);
+    }  
+}
+
+
+async function IniciarBot() {}
+async function DetenerBot() {}
+
+
+$(document).ready(function(){if(localStorage.getItem('modoinicio')==1){document.getElementById('btnstartstopbot').click();}});//Linea para el inicio automático
+
+/* Funciones de los Modulos */
 
 function modulo(id, direccionurl, segundosdeespera) {
   this.id = id;
@@ -6,14 +45,14 @@ function modulo(id, direccionurl, segundosdeespera) {
   this.segundosdeespera = segundosdeespera;   
 }
 
-var modulos = [];
 
-function crearModulo(direccionurl,segundosdeespera) {
+
+function crear_Modulo(direccionurl,segundosdeespera) {
   var modulo = new modulo(modulos.length + 1,direccionurl,segundosdeespera);
   modulos.push(modulo);
 }
 
-function mostrarModulos(){
+function mostrar_Modulos(){
   var lista='';
   for(var i=0; i<modulos.length; i++){
     lista+= 'id: ' + modulos[i].id +
@@ -23,7 +62,9 @@ function mostrarModulos(){
   console.log(lista);
 }
 
-function obtenCantidadTotalDeModulos(){return modulos.length;}
+function obten_Cantidad_Total_De_Modulos(){return modulos.length;}
+
+/*Funciones para abrir las URL*/
 
 function abrirURL(id, url) {
   var devuelve;
