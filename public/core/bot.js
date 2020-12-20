@@ -1,7 +1,12 @@
 /* Valores por defecto */
-var coloricono='red', modulos = [];
+estado_general_bot('red');
+var modulos = [];
 
 /* Funcionamiento del Bot */
+
+var click=0;
+
+document.getElementById("btnstartstopbot").addEventListener("click", function(){if(click%2==0){IniciarBot();}else{DetenerBot();}click++;});//Boton iniciar o detener bot
 
 function bloquearSalida(valor) {
   if(valor==true){
@@ -31,8 +36,14 @@ function estado_general_bot(coloricono) {
 }
 
 
-async function IniciarBot() {}
-async function DetenerBot() {}
+async function IniciarBot() {
+  estado_general_bot('yellow');
+
+  estado_general_bot('green');
+}
+async function DetenerBot() {
+  estado_general_bot('red');
+}
 
 
 $(document).ready(function(){if(localStorage.getItem('modoinicio')==1){document.getElementById('btnstartstopbot').click();}});//Linea para el inicio automático
