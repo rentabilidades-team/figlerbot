@@ -1,4 +1,4 @@
-function importarScript(nombre) {var s = document.createElement("script");s.src = nombre;document.querySelector("head").appendChild(s);}
+function importarScript(nombre, callback) {var s = document.createElement("script");s.onload = callback;s.src = nombre;document.querySelector("head").appendChild(s);}
 async function iniciarBot() {
     importarScript('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js');
     if(window.location.pathname.indexOf("/my-tickets")>=0){
