@@ -8,13 +8,7 @@ var click=0;
 
 document.getElementById("btnstartstopbot").addEventListener("click", function(){if(click%2==0){IniciarBot();}else{DetenerBot();}click++;});//Boton iniciar o detener bot
 
-function bloquearSalida(valor) {
-  if(valor==true){
-    window.onbeforeunload = function (e) {var message = "¿Estas seguro de que deseas detener el bot?",e = e || window.event;if (e) {e.returnValue = message;}return message;};
-  }else{
-    window.onbeforeunload = '';
-  }
-}
+function bloquearSalida(valor) {if(valor==true){window.onbeforeunload = function (e) {var message = "¿Estas seguro de que deseas detener el bot?",e = e || window.event;if (e) {e.returnValue = message;}return message;};}else{window.onbeforeunload = '';}}//Bloquea la salida de la página
 
 function estado_general_bot(coloricono) {
     document.getElementById('iconoestadogeneral').style.backgroundColor = coloricono;
