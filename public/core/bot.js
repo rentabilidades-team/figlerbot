@@ -1,5 +1,15 @@
 /* Valores por defecto */
-estado_general_bot('red');
+cargarDatos();
+async function cargarDatos() {
+  estado_general_bot('red');//Bot apagado
+  cargarDato('retrasoseg');//Segundos de retardo para cargar los módulos.
+  cargarDato('modonavegacion');//Abrir en Pestañas o en Ventanas.
+  cargarDato('modoinicio');//Inicio automático del bot.
+}
+async function cargarDato(dato) {
+  if(localStorage.getItem(dato)==null){localStorage.setItem(dato,0);}
+}
+
 var modulos = [];
 
 /* Funcionamiento del Bot */
@@ -43,6 +53,14 @@ async function DetenerBot() {
 $(document).ready(function(){if(localStorage.getItem('modoinicio')==1){document.getElementById('btnstartstopbot').click();}});//Linea para el inicio automático
 
 /* Funciones de los Modulos */
+
+const primeraLetraMayuscula = (cadena) => cadena.charAt(0).toUpperCase().concat(cadena.substring(1, cadena.length));//Primera letra en mayúscula
+function cuentaAtras(seconds) {var hour = Math.floor(seconds / 3600);hour = (hour < 10)? '0' + hour : hour;var minute = Math.floor((seconds / 60) % 60);minute = (minute < 10)? '0' + minute : minute; var second = seconds % 60;second = (second < 10)? '0' + second : second;return hour + ':' + minute + ':' + second;} //Muestra el conteo en formato "hora:mintutos:segundos"
+
+
+
+
+
 
 function modulo(id, direccionurl, segundosdeespera) {
   this.id = id;
