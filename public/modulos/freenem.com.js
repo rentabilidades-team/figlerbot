@@ -1,6 +1,6 @@
 async function iniciarBot() {
 	if(window.location.pathname=="/"){
-        if($("button.main-button.main-button-yellow.login.bg-3").is(':visible')==true){$("button.main-button.main-button-yellow.login.bg-3").click();}
+        if($('input[type=email]:first').val()=='' && $('input[type=password]:first').val()==''){$("button.main-button.main-button-yellow.login.bg-3").click();}
     }
     if(window.location.pathname.indexOf("/free")>=0){
         setInterval(function(){
