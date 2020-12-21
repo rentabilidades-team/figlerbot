@@ -58,6 +58,7 @@
 // @include      http*://cosmo-sfera.biz/*
 // @include      http*://me-farm.me/*
 // @include      http*://wood-man.biz/*
+// @require      https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_deleteValue
