@@ -7,7 +7,7 @@ const timer = ms => new Promise(res => setTimeout(res, ms))//Tiempo de espera,ej
 /*Importación de librerias*/
 
 function importar_libreria(url,callback) {//Permite importar librerias en los módulos
-if(url==null || callback==null){console.log('Error: Es necesario completar los dos valores.')}
+if(url==null && callback==null){console.log('Error: Es necesario completar los dos valores.')}
     var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);
 }
 
