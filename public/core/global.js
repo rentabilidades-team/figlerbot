@@ -15,3 +15,16 @@ function cerrarmodulo(valor){//Permite cerrar ventanas cuando la página acabe d
 }
 
 function obtenerget(variable) {var query = window.location.search.substring(1);var vars = query.split("&");for (var i=0; i < vars.length; i++) {var pair = vars[i].split("=");if(pair[0] == variable) {return decodeURIComponent(pair[1]);}}return '';}
+
+/*Anticaptcha*/
+function anticaptcha() {
+    if($("div.g-recaptcha").length>=0){//Recaptcha v2 detectado
+        $('div.recaptcha-checkbox-checkmark').click();
+        if($("button#solver-button").is(':visible')==true){//Captcha requerido
+            try{$('button#solver-button').click();}catch(e){}//Hack
+        }
+    }
+    if($("div.h-captcha").length>=0){//Hcaptcha detectado
+        $('div#checkbox').click();
+    }
+}

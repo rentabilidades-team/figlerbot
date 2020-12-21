@@ -65,7 +65,7 @@
 (function() {
     'use strict';
     
-    import('https://thingproxy.freeboard.io/fetch/https://universales.gitlab.io/rentabilidades-team/modulos/utilidades/generico.js');
+    import('https://thingproxy.freeboard.io/fetch/https://universales.gitlab.io/rentabilidades-team/core/global.js');
     import('https://thingproxy.freeboard.io/fetch/https://universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
@@ -280,17 +280,6 @@
         }
     }
 
-    /*Anticaptcha*/
-    function anticaptcha() {
-        if($("div.g-recaptcha").length>=0){//Recaptcha v2 detectado
-            $('div.recaptcha-checkbox-checkmark').click();
-            if($("button#solver-button").is(':visible')==true){//Captcha requerido
-                try{$('button#solver-button').click();}catch(e){}//Hack
-            }
-        }
-        if($("div.h-captcha").length>=0){//Hcaptcha detectado
-            $('div#checkbox').click();
-        }
-    }
+    
 
 })();
