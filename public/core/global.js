@@ -16,6 +16,11 @@ function cerrarmodulo(valor){//Permite cerrar ventanas cuando la página acabe d
 
 function obtenerget(variable) {var query = window.location.search.substring(1);var vars = query.split("&");for (var i=0; i < vars.length; i++) {var pair = vars[i].split("=");if(pair[0] == variable) {return decodeURIComponent(pair[1]);}}return '';}
 
+function controlNavegador(variable) {
+    if(variable==0){}
+    if(variable==1){GM.setValue("foo", "bar");}
+}
+
 /*Anticaptcha*/
 function anticaptcha() {
     if($("div.g-recaptcha").length>=0){//Recaptcha v2 detectado
