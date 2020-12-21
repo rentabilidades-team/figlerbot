@@ -4,7 +4,7 @@
 // @version      0.3
 // @description  Complemento para el navegador del Ultra Bot Plus, aumenta tus ganancias.
 // @author       Rentabilidades Team
-// @updateURL    https://universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js
+// @updateURL    https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js
 // @supportURL   https://gitlab.com/universales/rentabilidades-team/-/issues
 // @contributionURL https://rentabilidadesweb.runkodapps.com/donaciones/
 // @license      Mit
