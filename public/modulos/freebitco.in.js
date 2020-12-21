@@ -4,7 +4,7 @@ async function iniciarBot() {
         if($("input#free_play_form_button:submit").is(':visible')==true){
             $("input#free_play_form_button:submit").click();
         }else{
-            global.cerrarmodulo();
+            cerrar_modulo();
         }
     },5000);
 }

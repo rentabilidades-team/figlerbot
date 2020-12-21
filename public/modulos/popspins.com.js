@@ -21,7 +21,7 @@ async function iniciarBot() {
             if($('div#claimouter').is(':visible')==true){
                 $('div#claimouter > a#requestdaily')[0].click();
             }else{
-                global.cerrarmodulo();
+                cerrar_modulo();
             }
         }
     },5000);

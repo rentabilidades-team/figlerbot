@@ -1,4 +1,4 @@
-global.importarlibreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',iniciarBot);//Importo Jquery
+importar_libreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',iniciarBot);//Importo Jquery
 
 async function iniciarBot() { 
     if(window.location.pathname.indexOf("/my-tickets")>=0){
@@ -6,7 +6,7 @@ async function iniciarBot() {
             $('form > button:submit').click();
             $('form > button:submit').hide();
         }else
-            global.cerrarmodulo();
+           cerrar_modulo();
         }
     }
 }
