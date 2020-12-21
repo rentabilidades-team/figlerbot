@@ -16,9 +16,13 @@ function cerrarmodulo(valor){//Permite cerrar ventanas cuando la página acabe d
 
 function obtenerget(variable) {var query = window.location.search.substring(1);var vars = query.split("&");for (var i=0; i < vars.length; i++) {var pair = vars[i].split("=");if(pair[0] == variable) {return decodeURIComponent(pair[1]);}}return '';}
 
-function controlNavegador(variable) {
-    if(variable==0){}
-    if(variable==1){GM.setValue("foo", "bar");}
+function gestionar_datos_del_Navegador(accion,dato,valor) {//Accion (0 obtener dato, 1 guardar dato, 2 borrar dato del navegador)
+    if(accion==0){
+        var dato=GM.getValue(dato);
+        if(dato==null){console.log('Error: No se ha obtenido ningun dato.');}else{return dato;}
+    }
+    if(accion==1){GM.setValue(dato,valor);}
+    if(accion==2){GM.deleteValue(dato);}
 }
 
 /*Anticaptcha*/
