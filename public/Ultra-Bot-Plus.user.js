@@ -64,6 +64,7 @@
 
 (function() {
     'use strict';
+    import('https://cors-anywhere.herokuapp.com/https://universales.gitlab.io/rentabilidades-team/modulos/utilidades/generico.js');
     import('https://cors-anywhere.herokuapp.com/https://universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
