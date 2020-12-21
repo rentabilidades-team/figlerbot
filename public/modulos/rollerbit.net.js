@@ -4,7 +4,7 @@ async function iniciarBot() {
             if($('button#start-roll').is(':visible')==true){
                 try{$('button#start-roll').click();}catch(e){}
             }else{
-                cerrarmodulo(1);
+                global.cerrarmodulo(1);
             }
         },5000);
     }

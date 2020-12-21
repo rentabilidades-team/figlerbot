@@ -3,7 +3,9 @@ async function iniciarBot() {
     setInterval(function(){
         if($("input#free_play_form_button:submit").is(':visible')==true){
             $("input#free_play_form_button:submit").click();
-        }else{cerrarmodulo();}
+        }else{
+            global.cerrarmodulo();
+        }
     },5000);
 }
 iniciarBot();

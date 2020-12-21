@@ -5,9 +5,9 @@ async function iniciarBot() {
     }
     if(window.location.pathname.indexOf('/notimer_fp/faucet.php')>=0){
         if(obtenget('guardarurl')=='1'){
-            location.replace('//'+dominiobase()+'/modulo-digitask?digitaskurl='+encodeURIComponent(window.location.href));
+            location.replace('//'+global.dominiobase()+'/modulo-digitask?digitaskurl='+encodeURIComponent(window.location.href));
         }else{
-            cerrarmodulo();
+            global.cerrarmodulo();
         }
     }
 }

@@ -8,7 +8,7 @@ async function iniciarBot() {
                     $("button.main-button-2.roll-button.bg-2").click();$("button.main-button-2.roll-button.bg-2").hide();
                 }else{
                     if($("div > div.minutes").is(':visible')==true){
-                        cerrarmodulo();
+                        global.cerrarmodulo();
                         }else{
                             location.reload(true);
                         }
