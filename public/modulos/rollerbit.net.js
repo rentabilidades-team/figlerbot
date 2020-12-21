@@ -4,7 +4,7 @@ async function iniciarBot() {
             if($('button#start-roll').is(':visible')==true){
                 try{$('button#start-roll').click();}catch(e){}
             }else{
-                $(document).ready(function(){window.location.href='//rentabilidadesweb.runkodapps.com/tarea-finalizada';});
+                cerrarmodulo(1);
             }
         },5000);
     }
