@@ -1,6 +1,6 @@
 async function iniciarBot() {
     if(window.location.pathname=='/'){
-        if($('body > div.row > div.col.s12.m12.l6 > div > center:nth-child(4) > div:nth-child(6) > div:nth-child(2) > span > b').html()=='0'){//Revisar bug
+        if(document.referrer.indexOf('/payout')>=0){
             cerrarmodulo();
         }
     }
