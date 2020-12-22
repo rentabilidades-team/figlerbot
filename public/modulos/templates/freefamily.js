@@ -1,5 +1,5 @@
 import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-import * as global from 'global.js';
+import * as global from 'global';
 
 function obtenerMonedas() {
     if ($("button.main-button-2.roll-button.bg-2").is(':visible') == true) {
