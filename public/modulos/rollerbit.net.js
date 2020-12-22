@@ -1,11 +1,11 @@
-let global = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
+let importarglobal = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
 async function iniciarBot() {
     if(window.location.pathname=='/backoffice/freeroll'){
         setInterval(function(){
             if($('button#start-roll').is(':visible')==true){
                 try{$('button#start-roll').click();}catch(e){}
             }else{
-                global.cerrar_modulo(1);
+                importarglobal.cerrar_modulo(1);
             }
         },5000);
     }

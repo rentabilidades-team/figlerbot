@@ -1,5 +1,5 @@
-let global = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-if(global.obtener_get('importar')==1){
+let importarglobal = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
+if(importarglobal.obtener_get('importar')==1){
         if(window.location.pathname.indexOf('/page/user-admin/deposit')>=0){
             sessionStorage.setItem('btc',$('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(1) > div > div.card-body.text-center > input').val().trim());
             sessionStorage.setItem('doge',$('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(3) > div > div.card-body.text-center > input').val().trim());
@@ -12,12 +12,12 @@ if(global.obtener_get('importar')==1){
             location.replace('//'+window.location.hostname+'/account/settings?importar=1');
         }
         if(window.location.pathname.indexOf('/account/settings')>=0){
-            location.replace('//'+global.dominio_base()+'/faucetpay?fpemail='+$('input[name=email]').val().trim()+'&fpbtc='+sessionStorage.getItem("btc")+'&fpdoge='+sessionStorage.getItem("doge")+'&fpltc='+sessionStorage.getItem("ltc")+'&fpbch='+sessionStorage.getItem("bch")+'&fpdash='+sessionStorage.getItem("dash")+'&fpdgb='+sessionStorage.getItem("dgb")+'&fptrx='+sessionStorage.getItem("trx")+'&fpusdt='+sessionStorage.getItem("usdt"));
+            location.replace('//'+importarglobal.dominio_base()+'/faucetpay?fpemail='+$('input[name=email]').val().trim()+'&fpbtc='+sessionStorage.getItem("btc")+'&fpdoge='+sessionStorage.getItem("doge")+'&fpltc='+sessionStorage.getItem("ltc")+'&fpbch='+sessionStorage.getItem("bch")+'&fpdash='+sessionStorage.getItem("dash")+'&fpdgb='+sessionStorage.getItem("dgb")+'&fptrx='+sessionStorage.getItem("trx")+'&fpusdt='+sessionStorage.getItem("usdt"));
         }
     }else{
         if(window.location.pathname.indexOf('/page/user-admin')>=0){
-            if(document.referrer.indexOf(global.dominio_base())>=0){
-                global.cerrar_modulo();
+            if(document.referrer.indexOf(importarglobal.dominio_base())>=0){
+                importarglobal.cerrar_modulo();
             }
         }
 }
