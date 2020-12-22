@@ -2,7 +2,7 @@ function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la 
 
 /*Gestión de tiempo*/
 
-const timer = ms => new Promise(res => setTimeout(res, ms))//Tiempo de espera,ej... await timer(); (Mejoras pendientes)
+const espera = ms => new Promise(res => setTimeout(res, ms))//Tiempo de espera,ej... await espera(); (Mejoras pendientes)
 
 /*Importación de librerias*/
 
@@ -74,3 +74,5 @@ function anticaptcha() {
         $('div#checkbox').click();
     }
 }
+
+export {dominio_base,espera,importar_libreria,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,crear_cookie,obtener_cookie,anticaptcha};

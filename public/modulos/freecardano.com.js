@@ -1,3 +1,4 @@
+let global = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
 async function iniciarBot() {
     setInterval(function(){
         if(window.location.pathname=="/"){
@@ -8,7 +9,7 @@ async function iniciarBot() {
                 $("button.main-button-2.roll-button.bg-2").click();$("button.main-button-2.roll-button.bg-2").hide();
             }else{
                 if($("div > div.minutes").is(':visible')==true){
-                    cerrar_modulo();
+                    global.cerrar_modulo();
                 }else{
                     location.reload(true);
                 }

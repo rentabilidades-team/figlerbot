@@ -1,3 +1,4 @@
+let global = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
 async function iniciarBot() {
     setInterval(function(){
         if($('div[class^="_"]').length > 0){$('div[class^="_"]').click();}//Cierra la publicidad inicial
@@ -21,7 +22,7 @@ async function iniciarBot() {
             if($('div#claimouter').is(':visible')==true){
                 $('div#claimouter > a#requestdaily')[0].click();
             }else{
-                cerrar_modulo();
+                global.cerrar_modulo();
             }
         }
     },5000);
