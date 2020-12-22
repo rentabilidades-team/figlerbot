@@ -1,9 +1,7 @@
-let importarglobal = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-async function iniciarBot() {
+export default async function iniciar_modulo() {
     if(window.location.pathname=='/autosurf/session'){
         if(document.body.innerHTML.search('target="_blank"')<0){
-            importarglobal.cerrar_modulo();
+            cerrar_modulo();
         }
     }
 }
-iniciarBot();
