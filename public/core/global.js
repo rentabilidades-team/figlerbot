@@ -75,4 +75,4 @@ function anticaptcha() {
     }
 }
 
-//export {dominio_base,espera,importar_libreria,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,crear_cookie,obtener_cookie,anticaptcha};
+export {dominio_base,espera,importar_libreria,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,crear_cookie,obtener_cookie,anticaptcha};
