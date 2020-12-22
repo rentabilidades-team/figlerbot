@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let importarglobal = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
 async function iniciarBot() {
     setInterval(function(){
@@ -18,3 +19,6 @@ async function iniciarBot() {
     },10000);
 }
 iniciarBot();
+=======
+import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/templates/freefamily.js');
+>>>>>>> tomaswarynyca/rentabilidades-team-master
