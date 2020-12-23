@@ -3,4 +3,4 @@ async function iniciar_modulo(global) {
         global.cerrar_modulo();
     }
 }
-module.exports = {iniciar_modulo};
+export default {iniciar_modulo};

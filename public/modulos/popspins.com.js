@@ -26,4 +26,4 @@ async function iniciar_modulo(global) {
         }
     },5000);
 }
-module.exports = {iniciar_modulo};
+export default {iniciar_modulo};

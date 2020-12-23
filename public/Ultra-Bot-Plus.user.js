@@ -58,8 +58,6 @@
 // @include      http*://cosmo-sfera.biz/*
 // @include      http*://me-farm.me/*
 // @include      http*://wood-man.biz/*
-
-// @require      https://cdn.rawgit.org/requirejs.org/docs/release/2.3.6/minified/require.js
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_deleteValue
@@ -68,7 +66,7 @@
 (function() {
     'use strict';
     const global = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-    const modulo = require('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
+    const modulo = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
     modulo.iniciar_modulo(global);
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/

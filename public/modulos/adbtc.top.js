@@ -5,4 +5,4 @@ async function iniciar_modulo(global) {
         }
     }
 }
-module.exports = {iniciar_modulo};
+export default {iniciar_modulo};
