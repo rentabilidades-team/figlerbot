@@ -1,5 +1,3 @@
-with (require('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js')) {
-    
 function obtenerMonedas() {
     if ($("button.main-button-2.roll-button.bg-2").is(':visible') == true) {
         $("button.main-button-2.roll-button.bg-2").click();
@@ -46,4 +44,3 @@ async function iniciarBot() {
 }
 
 iniciarBot();
-}
