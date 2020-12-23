@@ -1,8 +1,9 @@
-async function iniciar_modulo(global) {
+import * as libglobal from "https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
+async function iniciar_modulo() {
     if(window.location.pathname=='/autosurf/session'){
         if(document.body.innerHTML.search('target="_blank"')<0){
-            global.cerrar_modulo();
+            libglobal.cerrar_modulo();
         }
     }
 }
-export {iniciar_modulo};
+iniciar_modulo();

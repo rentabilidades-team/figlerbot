@@ -1,4 +1,4 @@
-async function iniciar_modulo(global) {
+async function iniciar_modulo() {
     if(window.location.pathname.indexOf('/ultra-bot-plus')>=0){
         document.getElementById('btnstartstopbot').disabled = false;
         document.getElementById('alertabot').style.display = "none";
@@ -25,4 +25,4 @@ async function iniciar_modulo(global) {
         };
     }
 }
-export {iniciar_modulo};
+iniciar_modulo();

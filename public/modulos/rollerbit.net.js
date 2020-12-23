@@ -1,10 +1,11 @@
-async function iniciar_modulo(global) {
+import * as libglobal from "https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
+async function iniciar_modulo() {
     if(window.location.pathname=='/backoffice/freeroll'){
         setInterval(function(){
             if($('button#start-roll').is(':visible')==true){
                 try{$('button#start-roll').click();}catch(e){}
             }else{
-                global.cerrar_modulo(1);
+                libglobal.cerrar_modulo(1);
             }
         },5000);
     }
@@ -18,4 +19,4 @@ async function iniciar_modulo(global) {
         },5000);
     }
 }
-export {iniciar_modulo};
+iniciar_modulo();

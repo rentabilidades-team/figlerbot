@@ -10,7 +10,6 @@
 // @license      Mit
 // @compatible   Compatible con firefox, chrome, opera y safari.
 
-
 // @include      http*://rentabilidadesweb.runkodapps.com/*
 // @include      http*://faucetpay.io/*
 // @include      http*://expresscrypto.io/*
@@ -58,6 +57,7 @@
 // @include      http*://cosmo-sfera.biz/*
 // @include      http*://me-farm.me/*
 // @include      http*://wood-man.biz/*
+// @import       https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_deleteValue
@@ -65,9 +65,7 @@
 
 (function() {
     'use strict';
-    const global = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-    const modulo = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
-    modulo.iniciar_modulo(global);
+    importar_libreria('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js',null,'modulo');
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
 

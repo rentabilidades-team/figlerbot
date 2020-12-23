@@ -1,4 +1,5 @@
-async function iniciar_modulo(global) {
+import * as libglobal from "https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
+async function iniciar_modulo() {
     setInterval(function(){
         if($('div[class^="_"]').length > 0){$('div[class^="_"]').click();}//Cierra la publicidad inicial
         if($('span#spins').html()!=0){
@@ -21,9 +22,9 @@ async function iniciar_modulo(global) {
             if($('div#claimouter').is(':visible')==true){
                 $('div#claimouter > a#requestdaily')[0].click();
             }else{
-                global.cerrar_modulo();
+                libglobal.cerrar_modulo();
             }
         }
     },5000);
 }
-export {iniciar_modulo};
+iniciar_modulo();
