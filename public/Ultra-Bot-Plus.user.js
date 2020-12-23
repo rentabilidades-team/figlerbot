@@ -65,8 +65,8 @@
 
 (function() {
     'use strict';
-    const global = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-    const modulo = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
+    const global = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js').default();
+    const modulo = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js').default();
     modulo.iniciar_modulo(global);
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
