@@ -65,7 +65,7 @@
 
 (function() {
     'use strict';
-    const global = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js').default();
+    const global = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
     const modulo = import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js').default();
     modulo.iniciar_modulo(global);
 
