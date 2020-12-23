@@ -18,4 +18,4 @@ async function iniciar_modulo(global) {
         },5000);
     }
 }
-export default {iniciar_modulo};
+export {iniciar_modulo};

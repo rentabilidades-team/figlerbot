@@ -5,4 +5,4 @@ async function iniciar_modulo(global) {
         }else{if($("p#roll_wait_text").is(":visible")==true){global.cerrar_modulo();}}
     },3000);
 }
-export default {iniciar_modulo};
+export {iniciar_modulo};

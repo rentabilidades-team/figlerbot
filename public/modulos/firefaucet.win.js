@@ -23,4 +23,4 @@ async function iniciar_modulo(global) {
     }
     */
 }
-export default {iniciar_modulo};
+export {iniciar_modulo};
