@@ -1,12 +1,11 @@
-let importarglobal = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-async function iniciarBot() {
+async function iniciar_modulo(global) {
     if(window.location.pathname=='/'){
         if(document.referrer.indexOf('/payout')>=0){
-            importarglobal.cerrar_modulo();
+            global.cerrar_modulo();
         }
     }
     if(window.location.pathname.indexOf('/payout')>=0 || window.location.pathname.indexOf('/start')>=0){
-        importarglobal.cerrar_modulo();
+        global.cerrar_modulo();
     }
     /*Código no terminado
     if(window.location.pathname.indexOf('/shortlinks')>=0){
@@ -24,4 +23,4 @@ async function iniciarBot() {
     }
     */
 }
-iniciarBot();
+module.exports = {iniciar_modulo};

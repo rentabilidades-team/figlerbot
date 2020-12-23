@@ -1,7 +1,6 @@
-let importarglobal = await import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/global.js');
-async function iniciarBot() {
+async function iniciar_modulo(global) {
     if(window.location.pathname.indexOf('/autofaucet/claims.php')>=0){
-        importarglobal.cerrar_modulo();
+        global.cerrar_modulo();
     }
 }
-iniciarBot();
+module.exports = {iniciar_modulo};
