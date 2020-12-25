@@ -23,16 +23,14 @@ function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
 /*Importación de librerias*/
 function importar_libreria(url,callback) {//Permite importar librerias en los módulos
   if(url==null){console.log('Error: importar_libreria(url,callback); El valor url es null.')}
-  else{
-    var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);
-  }
+  else{var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);}
 }
 
 /*Realizar click humano*/
 function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-boton.otra-class-del-boton');
   var tiempoespera=numero_aleatorio(1000,5000), x, i;
   x = document.querySelectorAll(identificador);
-  if(x.length<0){console.log('Error: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
+  if(x.length==0){console.log('Error: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
     espera(tiempoespera);
     for (i = 0; i < x.length; i++) {
@@ -43,14 +41,41 @@ function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-bo
         x[i].disabled = true;
       }
     }
+
   }
 }
 
-/*Ocultar contenido*/
-function ocultar_contenido(identificador) {//Ejemplo ocultar('button#id-del-boton.class-del-boton.otra-class-del-boton');
+/*Introducir un valor a un elemento de la web*/
+function insertar(identificador,texto) {//Ejemplo insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en la web');
+  var x, i;
+  if(texto==null){console.log('Error: insertar(identificador,texto); El valor texto es null.');texto='';}
+  x = document.querySelectorAll(identificador);
+  if(x.length==0){console.log('Error: insertar(identificador,texto); No se pudo encontrar el identificador '+identificador+' .');}
+  else{
+    for (i = 0; i < x.length; i++) {
+      x[i].value = texto;
+    }
+  }
+}
+
+/*Inyectar un elemento a la web*/
+function inyectar(identificador,texto) {//Ejemplo inyectar('form#id-del-form.class-del-form.otra-class','<input type="hidden" name="nombre" value="1">');
+  var x, i;
+  if(texto==null){console.log('Error: insertar(identificador,texto); El valor texto es null.');texto='';}
+  x = document.querySelectorAll(identificador);
+  if(x.length==0){console.log('Error: insertar(identificador,texto); No se pudo encontrar el elemento '+identificador+' .');}
+  else{
+    for (i = 0; i < x.length; i++) {
+      x[i].insertAdjacentHTML("afterbegin", texto);
+    }
+  }
+}
+
+/*Ocultar o esconder contenido, puedes hacerlo con la publicidad, esto no dañará la economia de las webs y no se detecta como bloqueador de anuncios :)*/
+function ocultar(identificador) {//Ejemplo ocultar('div#id-del-div.class-del-div.otra-class-del-div');
   var x, i;
   x = document.querySelectorAll(identificador);
-  if(x.length<0){console.log('Error: ocultar_contenido(identificador); No se pudo encontrar el elemento '+identificador+' .');}
+  if(x.length==0){console.log('Error: ocultar(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";
@@ -59,11 +84,15 @@ function ocultar_contenido(identificador) {//Ejemplo ocultar('button#id-del-boto
 }
 
 /*Gestor de ventanas*/
-function cerrar_modulo(valor){//Permite cerrar ventanas cuando la página acabe de cargar (Valor 1 fuerza el cierre en webs que no lo permiten)
-    if(valor==null){valor=0;}
-    try{valor=parseInt(valor);}catch(e){console.log(e);}
-    if(valor==0){try{window.close();}catch(e){console.log(e);}}
-    if(valor==1){window.location.href='//'+dominioBase()+'/tarea-finalizada';}
+function cerrar_modulo(valor){//Permite cerrar ventanas (Valor 1 fuerza el cierre en webs que no lo permiten)
+  setInterval(function(){
+    if (document.readyState === "complete") {//Página cargada completamente
+      if(valor==null){valor=0;}
+      try{valor=parseInt(valor);}catch(e){console.log(e);}
+      if(valor==0){try{window.close();}catch(e){console.log(e);}}
+      if(valor==1){window.location.href='//'+dominioBase()+'/tarea-finalizada';}
+    }
+  },500);
 }
 
 /*Obtener variable get de la url*/
@@ -79,7 +108,7 @@ function obtener_get(nombre) {
     }
     return '';
   }
-  }
+}
 
 /*Gestionar almacenamiento del navegador*/
 function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener dato del navegador, 1 guardar dato en el navegador, 2 borrar dato del navegador)
