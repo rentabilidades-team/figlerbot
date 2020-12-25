@@ -29,7 +29,7 @@ function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-bo
   x = document.querySelectorAll(identificador);
   if(x.length<0){console.log('Error: click(identificador); No se pudo encontrar el elemento.');}
   else{
-    espera(tiempoespera);
+    await espera(tiempoespera);
     for (i = 0; i < x.length; i++) {
       if(x[i].disabled){console.log('Click ignorado: El boton está deshabilidado.');}
       if(x[i].style.visibility=='hidden'){console.log('Click ignorado: El boton está escondido.');}
