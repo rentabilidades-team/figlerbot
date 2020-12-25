@@ -1,7 +1,6 @@
 function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la base del proyecto
 
 /*Gestión de tiempo*/
-
 function espera(ms){//Tiempo de espera await espera(ms);
   if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
   try{ms=parseInt(ms);}catch(e){console.log(e);}
@@ -19,14 +18,12 @@ function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
 
 
 /*Importación de librerias*/
-
 function importar_libreria(url,callback) {//Permite importar librerias en los módulos
   if(url==null){console.log('Error: importar_libreria(url,callback); El valor  url es null.')}
   var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);
 }
 
 /*Realizar click humano*/
-
 function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-boton.otra-class-del.boton');
   var tiempoespera=numero_aleatorio(1000,5000), x, i;
   x = document.querySelectorAll(identificador);
@@ -45,7 +42,6 @@ function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-bo
 }
 
 /*Gestor de ventanas*/
-
 function cerrar_modulo(valor){//Permite cerrar ventanas cuando la página acabe de cargar (Valor 1 fuerza el cierre en webs que no lo permiten)
     if(valor==null){valor=0;}
     try{valor=parseInt(valor);}catch(e){console.log(e);}
@@ -56,11 +52,9 @@ function cerrar_modulo(valor){//Permite cerrar ventanas cuando la página acabe 
 }
 
 /*Obtener variable get de la url*/
-
 function obtener_get(variable) {var query = window.location.search.substring(1);var vars = query.split("&");for (var i=0; i < vars.length; i++) {var pair = vars[i].split("=");if(pair[0] == variable) {return decodeURIComponent(pair[1]);}}return '';}
 
 /*Gestionar almacenamiento del navegador*/
-
 function gestionar_datos_del_navegador(accion,dato,valor) {//Accion (0 obtener dato, 1 guardar dato, 2 borrar dato del navegador)
     if(accion==0){
         var dato=GM.getValue(dato);
@@ -71,14 +65,12 @@ function gestionar_datos_del_navegador(accion,dato,valor) {//Accion (0 obtener d
 }
 
 /*Gestionar cookies*/
-
 function crear_cookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-
 function obtener_cookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
