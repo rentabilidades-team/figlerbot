@@ -62,10 +62,8 @@ function ocultar_contenido(identificador) {//Ejemplo ocultar('button#id-del-boto
 function cerrar_modulo(valor){//Permite cerrar ventanas cuando la página acabe de cargar (Valor 1 fuerza el cierre en webs que no lo permiten)
     if(valor==null){valor=0;}
     try{valor=parseInt(valor);}catch(e){console.log(e);}
-    var loader = setInterval(function () {if(document.readyState !== "complete") return;clearInterval(loader);
     if(valor==0){try{window.close();}catch(e){console.log(e);}}
     if(valor==1){window.location.href='//'+dominioBase()+'/tarea-finalizada';}
-    }, 300);  
 }
 
 /*Obtener variable get de la url*/
