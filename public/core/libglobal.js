@@ -2,7 +2,7 @@ function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la 
 
 /*Gestión de tiempo*/
 
-function espera(ms){//Tiempo de espera await espera();
+function espera(ms){//Tiempo de espera await espera(ms);
   if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
   try{ms=parseInt(ms);}catch(e){console.log(e);}
   var d = new Date(),d2;
@@ -28,20 +28,19 @@ function importar_libreria(url,callback) {//Permite importar librerias en los m�
 /*Realizar click humano*/
 
 function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-boton.otra-class-del.boton');
-  var tiempoespera=numero_aleatorio(1,5), x, i;
+  var tiempoespera=numero_aleatorio(1000,5000), x, i;
   x = document.querySelectorAll(identificador);
   if(x.length<0){console.log('Error: click(identificador); No se pudo encontrar el elemento.');}
   else{
-    setTimeout(function(){
-      for (i = 0; i < x.length; i++) {
-        if(x[i].disabled){console.log('Click ignorado: El boton está deshabilidado.');}
-        if(x[i].style.visibility=='hidden'){console.log('Click ignorado: El boton está escondido.');}
-        if(x[i].disabled==false && x[i].style.visibility=='visible'){
-          x[i].click();
-          x[i].setAttribute("type", "hidden");
-        }
+    espera(tiempoespera);
+    for (i = 0; i < x.length; i++) {
+      if(x[i].disabled){console.log('Click ignorado: El boton está deshabilidado.');}
+      if(x[i].style.visibility=='hidden'){console.log('Click ignorado: El boton está escondido.');}
+      if(x[i].disabled==false && x[i].style.visibility=='visible'){
+        x[i].click();
+        x[i].setAttribute("type", "hidden");
       }
-    }, tiempoespera+'000');
+    }
   }
 }
 
