@@ -4,6 +4,7 @@ function importar_libglobal(url,callback) {//Permite importar la libreria global
 }
 importar_libglobal('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js',iniciar_modulo);
 async function iniciar_modulo() {
+    console.log('Prueba');
     if(window.location.pathname=='/'){
         if(document.referrer.indexOf('/payout')>=0){
             cerrar_modulo();
