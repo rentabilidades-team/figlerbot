@@ -1,7 +1,9 @@
 function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la base del proyecto
 
-/*Gestión de tiempo*/
-function espera(ms){//Tiempo de espera - espera(ms);
+/*El siguiente ejemplo te permite esperar un tiempo para realizar una acción.
+  Ejemplo: espera(1000);//Espera de 1 segundo
+*/
+function espera(ms){//
   if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
   else{
     try{ms=parseInt(ms);}catch(e){console.log(e);}
@@ -11,7 +13,9 @@ function espera(ms){//Tiempo de espera - espera(ms);
   }
 }
 
-/*Generar numero aleatorio*/
+/*El siguiente ejemplo te permite generar un numero aleatorio.
+    Ejemplo: var num=numero_aleatorio(1,5);//Devuelve un numero aleatorio entre el numero 1 y el munero 5
+*/
 function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
   if(min==null || max==null){console.log('Error: numero_aleatorio(min,max); El valor min o max es null.');}
   else{
@@ -20,82 +24,135 @@ function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
   }
 }
 
-/*Importación de librerias*/
-function importar_libreria(url,callback) {//Permite importar librerias en los módulos
-  if(url==null){console.log('Error: importar_libreria(url,callback); El valor url es null.')}
-  else{var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);}
+/*El siguiente ejemplo te permite importar librerias en el módulo. 
+    importar_libreria('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/templates/freefamily.js');//Importo la plantilla de un módulo.
+  Importante: NO SE RECOMIENDA LA IMPORTACIÓN DE LIBRERIAS EXTERNAS EN LOS MODULOS.
+  El siguiente ejemplo te permite importar librerias en el módulo, y obtener información de ellas.
+    Ejemplo: importar_libreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',funcion); //Importo Jquery
+    function funcion() {
+      //Aqui puedo usar jquery
+    }
+  Por defecto se importa 'text/javascript', también es posible cambiar el tipo de script a importar...
+    Ejemplo: importar_libreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',funcion,'module'); //Importo Jquery como modulo
+    function funcion() {
+      //Aqui puedo usar jquery
+    }
+*/
+function importar_libreria(url,callback,tipo) {
+  if(url==null){console.log('Error: importar_libreria(url,callback); El valor url es null.');}
+  if(tipo==null){tipo='text/javascript';}
+  else{
+    var s = document.createElement("script");
+    s.onload = callback;
+    s.type = tipo;
+    s.src = url;
+    document.querySelector("head").appendChild(s);
+  }
 }
 
-/*Realizar click humano*/
-function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-boton.otra-class-del-boton');
+/*El siguiente ejemplo te permite realizar un click con simulación humana.
+    Ejemplo: click('button#id-del-boton.class-del-boton.otra-class-del-boton');
+*/
+function click(identificador) {
   var tiempoespera=numero_aleatorio(1000,5000), x, i;
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Error: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
     espera(tiempoespera);
-    for (i = 0; i < x.length; i++) {
-      if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
-      if(x[i].style.visibility=='hidden' || x[i].style.display=='none'){console.log('Click ignorado: El boton está escondido.');}
-      if(x[i].disabled==false && x[i].style.visibility!='hidden' && x[i].style.display!='none'){
-        x[i].click();
-        x[i].disabled = true;
-      }
+    i=0;
+    if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
+    if(x[i].style.visibility=='hidden' || x[i].style.display=='none'){console.log('Click ignorado: El boton está escondido.');}
+    if(x[i].disabled==false && x[i].style.visibility!='hidden' && x[i].style.display!='none'){
+      x[i].click();
+      x[i].disabled = true;
     }
-
   }
 }
 
-/*Introducir un valor a un elemento de la web*/
-function insertar(identificador,texto) {//Ejemplo insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en la web');
+/*Introducir un valor a un elemento de la web
+    Ejemplo: insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en el input de la web');
+  Si se quiere introducir el valor de manera masiva a todos los elementos, puedes añadir "true".
+    Ejemplo: insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en el input de la web',true);
+*/
+function insertar(identificador,texto,masivo) {
   var x, i;
   if(texto==null){console.log('Error: insertar(identificador,texto); El valor texto es null.');texto='';}
+  if(masivo==null){masivo=false;}
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Error: insertar(identificador,texto); No se pudo encontrar el identificador '+identificador+' .');}
   else{
-    for (i = 0; i < x.length; i++) {
-      x[i].value = texto;
+    if(masivo==false){
+      x[0].value = texto; 
+    }else{
+      for (i = 0; i < x.length; i++) {
+        x[i].value = texto; 
+      }
     }
   }
 }
 
-/*Inyectar un elemento a la web*/
-function inyectar(identificador,texto) {//Ejemplo inyectar('form#id-del-form.class-del-form.otra-class','<input type="hidden" name="nombre" value="1">');
+/*El siguiente ejemplo te permite inyectar un elemento a la web.
+    Ejemplo: inyectar('form#id-del-form.class-del-form.otra-class','<input type="hidden" name="nombre" value="1">');
+  Si se quiere inyectar el valor de manera masiva a todos los elementos, puedes añadir "true".
+    Ejemplo: inyectar('form#id-del-form.class-del-form.otra-class','<input type="hidden" name="nombre" value="1">',true);
+*/
+function inyectar(identificador,texto,masivo) {
   var x, i;
   if(texto==null){console.log('Error: insertar(identificador,texto); El valor texto es null.');texto='';}
+  if(masivo==null){masivo=false;}
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Error: insertar(identificador,texto); No se pudo encontrar el elemento '+identificador+' .');}
   else{
-    for (i = 0; i < x.length; i++) {
-      x[i].insertAdjacentHTML("afterbegin", texto);
+    if(masivo==false){
+      x[0].insertAdjacentHTML("afterbegin", texto);
+    }else{
+      for (i = 0; i < x.length; i++) {
+        x[i].insertAdjacentHTML("afterbegin", texto);
+      }
     }
   }
 }
 
-/*Ocultar o esconder contenido, puedes hacerlo con la publicidad, esto no dañará la economia de las webs y no se detecta como bloqueador de anuncios :)*/
-function ocultar(identificador) {//Ejemplo ocultar('div#id-del-div.class-del-div.otra-class-del-div');
+/*El siguiente ejemplo te permite ocultar o esconder contenido de la web.
+    Ejemplo: ocultar('div#id-del-div.class-del-div.otra-class-del-div');
+  Si deseas solo ocultar el primer contenido de la web, puedes añadir "false".
+    Ejemplo: ocultar('div#id-del-div.class-del-div.otra-class-del-div',false);
+*/
+function ocultar(identificador,masivo) {
   var x, i;
+  if(masivo==null){masivo=true;}
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Error: ocultar(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+    if(masivo==false){
+      x[0].style.display = "none";
+    }else{
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
     }
   }
 }
 
-/*Gestor de ventanas*/
-function cerrar_modulo(valor){//Permite cerrar ventanas (Valor 1 fuerza el cierre en webs que no lo permiten)
+/*El siguiente ejemplo te permite cerrar tu modulo.
+    Ejemplo: cerrar_modulo();
+  Si el método anterior no te funciona puedes forzar el cierre del módulo.
+    Ejemplo: cerrar_modulo(true);
+*/
+function cerrar_modulo(valor){
   setInterval(function(){
     if (document.readyState === "complete") {//Página cargada completamente
-      if(valor==null){valor=0;}
-      try{valor=parseInt(valor);}catch(e){console.log(e);}
-      if(valor==0){try{window.close();}catch(e){console.log(e);}}
-      if(valor==1){window.location.href='//'+dominioBase()+'/tarea-finalizada';}
+      if(valor==null){valor=true;}
+      if(valor==false){try{window.close();}catch(e){console.log(e);}}
+      if(valor==true){window.location.href='//'+dominioBase()+'/tarea-finalizada';}
     }
   },500);
 }
 
-/*Obtener variable get de la url*/
+/*El siguiente ejemplo te permite obtener cualquier variable "get" de la url.
+    URL: https://example.com/?hola=1
+    Ejemplo: var dato = obtener_get('hola'); //Se recibe el 1 de la url
+*/
 function obtener_get(nombre) {
   if(nombre==null){console.log('Error: obtener_get(nombre); El valor nombre es null.');}
   else{
@@ -110,21 +167,27 @@ function obtener_get(nombre) {
   }
 }
 
-/*Gestionar almacenamiento del navegador*/
+/*El siguiente ejemplo te permite guardar un dato en el navegador.
+    Ejemplo: gestionar_datos_del_navegador(0,'dato1','valor del dato 1');//Guardo 'dato1' y el 'valor del dato 1'
+  El siguiente ejemplo te permite obtener un dato en el navegador.
+    Ejemplo: var informacion=gestionar_datos_del_navegador(1,'dato1');//Obtengo 'valor del dato 1'
+  El siguiente ejemplo te permite eliminar un dato en el navegador.
+    Ejemplo: gestionar_datos_del_navegador(2,'dato1');//Elimino 'dato1' y el 'valor del dato 1' del navegador.
+*/
 function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener dato del navegador, 1 guardar dato en el navegador, 2 borrar dato del navegador)
   if(accion==null){console.log('Error: gestionar_datos_del_navegador(accion,nombre,valor); El valor accion es null.');}
   else{
     try{accion=parseInt(accion);}catch(e){console.log(e);}
     if(accion==0){
-      var getdato=GM.getValue(nombre);
-      if(getdato==null){console.log('Error: gestionar_datos_del_navegador(0,nombre,valor); El valor nombre es null.');}
-      else{return getdato;}
-    }
-    if(accion==1){
       if(nombre==null || valor==null){console.log('Error: gestionar_datos_del_navegador(1,nombre,valor); El valor nombre o valor es null.');}
       else{
         GM.setValue(nombre,valor);  
       }
+    }
+    if(accion==1){
+      var getdato=GM.getValue(nombre);
+      if(getdato==null){console.log('Error: gestionar_datos_del_navegador(0,nombre,valor); El valor nombre es null.');}
+      else{return getdato;}
     }
     if(accion==2){
       if(nombre==null){console.log('Error: gestionar_datos_del_navegador(2,nombre); El valor nombre es null.');}
@@ -134,11 +197,19 @@ function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener
     }
   }
 
-/*Gestionar cookies*/
+/*El siguiente ejemplo te permite guardar un dato en una cookie.
+    Ejemplo: crear_cookie('cookie1','valorcookie1'); //Expiración de la cookie por defecto 1 día.
+  También puedes editar el tiempo de expiración.
+    Ejemplo: crear_cookie('cookie1','valorcookie1',4); //Expiración de la cookie en 4 días.
+  El siguiente ejemplo te permite recibir el valor de una cookie.
+    Ejemplo: var valor=obtener_cookie('cookie1');
+  El siguiente ejemplo te permite eliminar una cookie.
+    Ejemplo: var valor=crear_cookie('cookie1','',0); //Cookie 1 eliminada.
+*/
 function crear_cookie(cname, cvalue, exdays) {
   if(cname==null || cvalue==null){console.log('Error: crear_cookie(cname,cvalue); El valor cname o cvalue es null.');}
   else{
-    if(exdays==null){exdays=1;}//Valor por defecto de expiración de la cookie si el valor exdays no es enviado (1 día)
+    if(exdays==null){exdays=1;}
     try{exdays=parseInt(exdays);}catch(e){console.log(e);}
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -166,16 +237,18 @@ function obtener_cookie(cname) {
 }
 
 /*Anticaptcha*/
-function anticaptcha() {//No funcional, transformar a puro js.
-    if($("div.g-recaptcha").length>=0){//Recaptcha v2 detectado
-        $('div.recaptcha-checkbox-checkmark').click();
-        if($("button#solver-button").is(':visible')==true){//Captcha requerido
-            try{$('button#solver-button').click();}catch(e){}//Hack
-        }
-    }
-    if($("div.h-captcha").length>=0){//Hcaptcha detectado
-        $('div#checkbox').click();
-    }
+function anticaptcha() {
+  /*  No funcional, transformar a puro js.
+      if($("div.g-recaptcha").length>=0){//Recaptcha v2 detectado
+          $('div.recaptcha-checkbox-checkmark').click();
+          if($("button#solver-button").is(':visible')==true){//Captcha requerido
+              try{$('button#solver-button').click();}catch(e){}//Hack
+          }
+      }
+      if($("div.h-captcha").length>=0){//Hcaptcha detectado
+          $('div#checkbox').click();
+      }
+  */
 }
 
 //export {dominio_base,espera,importar_libreria,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,crear_cookie,obtener_cookie,anticaptcha};

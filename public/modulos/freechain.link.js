@@ -5,5 +5,5 @@ function importar_libglobal(url,callback) {//Permite importar la libreria global
 importar_libglobal('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js',iniciar_modulo);
 
 async function iniciar_modulo() {
-    importar_libreria('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/templates/freefamily.js',null);
+    importar_libreria('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/templates/freefamily.js');
 }
