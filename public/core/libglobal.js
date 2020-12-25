@@ -69,7 +69,7 @@ function click(identificador) {
   }
 }
 
-/*Introducir un valor a un elemento de la web
+/*Introducir un valor a un elemento de la web.
     Ejemplo: insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en el input de la web');
   Si se quiere introducir el valor de manera masiva a todos los elementos, puedes añadir "true".
     Ejemplo: insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en el input de la web',true);
@@ -136,7 +136,7 @@ function ocultar(identificador,masivo) {
 
 /*El siguiente ejemplo te permite cerrar tu modulo.
     Ejemplo: cerrar_modulo();
-  Si el método anterior no te funciona puedes forzar el cierre del módulo.
+  Si el método anterior no funciona puedes forzar el cierre del módulo.
     Ejemplo: cerrar_modulo(true);
 */
 function cerrar_modulo(valor){
