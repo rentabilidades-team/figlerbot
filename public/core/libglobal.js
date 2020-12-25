@@ -16,7 +16,6 @@ function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
   return Math.floor((Math.random() * max) + min);
 }
 
-
 /*Importación de librerias*/
 function importar_libreria(url,callback) {//Permite importar librerias en los módulos
   if(url==null){console.log('Error: importar_libreria(url,callback); El valor  url es null.')}
