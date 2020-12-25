@@ -1,7 +1,7 @@
 function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la base del proyecto
 
 /*Gestión de tiempo*/
-function espera(ms){//Tiempo de espera await espera(ms);
+function espera(ms){//Tiempo de espera - espera(ms);
   if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
   else{
     try{ms=parseInt(ms);}catch(e){console.log(e);}
@@ -11,7 +11,7 @@ function espera(ms){//Tiempo de espera await espera(ms);
   }
 }
 
-/*Numero Aleatorio*/
+/*Generar numero aleatorio*/
 function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
   if(min==null || max==null){console.log('Error: numero_aleatorio(min,max); El valor min o max es null.');}
   else{
@@ -22,7 +22,7 @@ function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
 
 /*Importación de librerias*/
 function importar_libreria(url,callback) {//Permite importar librerias en los módulos
-  if(url==null){console.log('Error: importar_libreria(url,callback); El valor  url es null.')}
+  if(url==null){console.log('Error: importar_libreria(url,callback); El valor url es null.')}
   else{
     var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);
   }
@@ -32,7 +32,7 @@ function importar_libreria(url,callback) {//Permite importar librerias en los m�
 function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-boton.otra-class-del-boton');
   var tiempoespera=numero_aleatorio(1000,5000), x, i;
   x = document.querySelectorAll(identificador);
-  if(x.length<0){console.log('Error: click(identificador); No se pudo encontrar el elemento.');}
+  if(x.length<0){console.log('Error: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
     espera(tiempoespera);
     for (i = 0; i < x.length; i++) {
@@ -42,6 +42,18 @@ function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-bo
         x[i].click();
         x[i].disabled = true;
       }
+    }
+  }
+}
+
+/*Ocultar contenido*/
+function ocultar_contenido(identificador) {//Ejemplo ocultar('button#id-del-boton.class-del-boton.otra-class-del-boton');
+  var x, i;
+  x = document.querySelectorAll(identificador);
+  if(x.length<0){console.log('Error: ocultar_contenido(identificador); No se pudo encontrar el elemento '+identificador+' .');}
+  else{
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
     }
   }
 }
@@ -57,54 +69,77 @@ function cerrar_modulo(valor){//Permite cerrar ventanas cuando la página acabe 
 }
 
 /*Obtener variable get de la url*/
-function obtener_get(variable) {var query = window.location.search.substring(1);var vars = query.split("&");for (var i=0; i < vars.length; i++) {var pair = vars[i].split("=");if(pair[0] == variable) {return decodeURIComponent(pair[1]);}}return '';}
+function obtener_get(nombre) {
+  if(nombre==null){console.log('Error: obtener_get(nombre); El valor nombre es null.');}
+  else{
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");for (var i=0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      if(pair[0] == nombre) {
+        return decodeURIComponent(pair[1]);
+      }
+    }
+    return '';
+  }
+  }
 
 /*Gestionar almacenamiento del navegador*/
-function gestionar_datos_del_navegador(accion,dato,valor) {//Accion (0 obtener dato del navegador, 1 guardar dato en el navegador, 2 borrar dato del navegador)
-  if(accion==null){console.log('Error: gestionar_datos_del_navegador(accion,dato,valor); El valor accion es null.');}
-  if(accion==0){
-    var getdato=GM.getValue(dato);
-    if(getdato==null){console.log('Error: gestionar_datos_del_navegador(0,dato,valor); El valor dato es null.');}
-    else{return getdato;}
-  }
-  if(accion==1){
-    if(dato==null || valor==null){console.log('Error: gestionar_datos_del_navegador(1,dato,valor); El valor dato o valor es null.');}
-    else{
-        GM.setValue(dato,valor);  
+function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener dato del navegador, 1 guardar dato en el navegador, 2 borrar dato del navegador)
+  if(accion==null){console.log('Error: gestionar_datos_del_navegador(accion,nombre,valor); El valor accion es null.');}
+  else{
+    try{accion=parseInt(accion);}catch(e){console.log(e);}
+    if(accion==0){
+      var getdato=GM.getValue(nombre);
+      if(getdato==null){console.log('Error: gestionar_datos_del_navegador(0,nombre,valor); El valor nombre es null.');}
+      else{return getdato;}
     }
-  }
-  if(accion==2){
-    if(dato==null){console.log('Error: gestionar_datos_del_navegador(2,dato); El valor dato es null.');}
-    else{
-      GM.deleteValue(dato);
+    if(accion==1){
+      if(nombre==null || valor==null){console.log('Error: gestionar_datos_del_navegador(1,nombre,valor); El valor nombre o valor es null.');}
+      else{
+        GM.setValue(nombre,valor);  
+      }
+    }
+    if(accion==2){
+      if(nombre==null){console.log('Error: gestionar_datos_del_navegador(2,nombre); El valor nombre es null.');}
+      else{
+        GM.deleteValue(nombre);
+      }
     }
   }
 
 /*Gestionar cookies*/
 function crear_cookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  var expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  if(cname==null || cvalue==null){console.log('Error: crear_cookie(cname,cvalue); El valor cname o cvalue es null.');}
+  else{
+    if(exdays==null){exdays=1;}//Valor por defecto de expiración de la cookie si el valor exdays no es enviado (1 día)
+    try{exdays=parseInt(exdays);}catch(e){console.log(e);}
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
 }
 function obtener_cookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
+  if(cname==null){console.log('Error: obtener_cookie(cname); El valor cname es null.');}
+  else{
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
+    return "";
   }
-  return "";
 }
 
 /*Anticaptcha*/
-function anticaptcha() {
+function anticaptcha() {//No funcional, transformar a puro js.
     if($("div.g-recaptcha").length>=0){//Recaptcha v2 detectado
         $('div.recaptcha-checkbox-checkmark').click();
         if($("button#solver-button").is(':visible')==true){//Captcha requerido
