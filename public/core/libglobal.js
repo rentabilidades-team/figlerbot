@@ -2,11 +2,17 @@ function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la 
 
 /*Gestión de tiempo*/
 
-const espera = ms => new Promise(res => setTimeout(res, ms))//Tiempo de espera,ej... await espera(); (Mejoras pendientes)
+function espera(ms){//Tiempo de espera await espera();
+  if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
+  try{ms=parseInt(ms);}catch(e){console.log(e);}
+  var d = new Date(),d2;
+  do {d2 = new Date();}
+  while(d2-d < ms);
+}
 
 /*Numero Aleatorio*/
 function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
-  if(min==null || max==null){console.log('Error: numero_aleatorio(min,max); erroneo.');}
+  if(min==null || max==null){console.log('Error: numero_aleatorio(min,max); El valor min o max es null.');}
   try{min=parseInt(min);max=parseInt(max);}catch(e){console.log(e);}
   return Math.floor((Math.random() * max) + min);
 }
@@ -15,8 +21,8 @@ function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
 /*Importación de librerias*/
 
 function importar_libreria(url,callback) {//Permite importar librerias en los módulos
-  if(url==null){console.log('Error: importar_libreria(url,callback); Es necesario introducir la url de la libreria.')}
-    var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);
+  if(url==null){console.log('Error: importar_libreria(url,callback); El valor  url es null.')}
+  var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);
 }
 
 /*Realizar click humano*/

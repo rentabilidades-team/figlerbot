@@ -6,7 +6,7 @@ function obtenerMonedas() {
 }
 
 async function iniciarBot() {
-    await global.timer(2000);
+    await espera(2000);
 
     /*AutoLogin*/
     if (window.location.pathname == "/") {
@@ -18,27 +18,27 @@ async function iniciarBot() {
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
         obtenerMonedas();
-        await global.timer(8000);
-        if (global.obtener_cookie("free-roll") < 8) {
-            if (!global.obtener_cookie("free-roll")) {
-                global.crear_cookie("free-roll", 0, 1);
+        await espera(8000);
+        if (obtener_cookie("free-roll") < 8) {
+            if (!obtener_cookie("free-roll")) {
+                crear_cookie("free-roll", 0, 1);
             }
-            let i = global.obtener_cookie("free-roll");
+            let i = obtener_cookie("free-roll");
             var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"]
             window.location='/promotion/' + codes[i]
         }else{
         	obtenerMonedas();
         	if ($("div > div.minutes").is(':visible') == true) {
-                global.cerrar_modulo();
+                cerrar_modulo();
             }
         }
     }
 
     /*AutoFreeRolls*/
     if (window.location.pathname.indexOf("/promotion") > -1) {
-        let i = global.obtener_cookie("free-roll");
-        global.crear_cookie("free-roll", ++i, 1)
-            await global.timer(2000);
+        let i = obtener_cookie("free-roll");
+        crear_cookie("free-roll", ++i, 1)
+            await espera(2000);
         window.location='/free';
     }
 }
