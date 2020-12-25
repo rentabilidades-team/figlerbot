@@ -36,9 +36,9 @@ function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-bo
   else{
     espera(tiempoespera);
     for (i = 0; i < x.length; i++) {
-      if(x[i].disabled){console.log('Click ignorado: El boton está deshabilidado.');}
-      if(x[i].style.visibility=='hidden'){console.log('Click ignorado: El boton está escondido.');}
-      if(x[i].disabled==false && x[i].style.visibility=='visible'){
+      if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
+      if(x[i].style.visibility=='hidden' || x[i].style.display=='none'){console.log('Click ignorado: El boton está escondido.');}
+      if(x[i].disabled==false && x[i].style.visibility!='hidden' && x[i].style.display!='none'){
         x[i].click();
         x[i].disabled = true;
       }
