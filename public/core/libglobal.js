@@ -4,11 +4,39 @@ function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la 
 
 const espera = ms => new Promise(res => setTimeout(res, ms))//Tiempo de espera,ej... await espera(); (Mejoras pendientes)
 
+/*Numero Aleatorio*/
+function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
+  if(min==null || max==null){console.log('Error: numero_aleatorio(min,max); erroneo.');}
+  try{min=parseInt(min);max=parseInt(max);}catch(e){console.log(e);}
+  return Math.floor((Math.random() * max) + min);
+}
+
+
 /*Importación de librerias*/
 
 function importar_libreria(url,callback) {//Permite importar librerias en los módulos
-if(url==null){console.log('Error: Es necesario introducir la url de la libreria.')}
+  if(url==null){console.log('Error: importar_libreria(url,callback); Es necesario introducir la url de la libreria.')}
     var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);
+}
+
+/*Realizar click humano*/
+
+function click(identificador) {//Ejemplo click('button#id-del-boton.class-del-boton.otra-class-del.boton');
+  var tiempoespera=numero_aleatorio(1,5), x, i;
+  x = document.querySelectorAll(identificador);
+  if(x.length<0){console.log('Error: click(identificador); No se pudo encontrar el elemento.');}
+  else{
+    setTimeout(function(){
+      for (i = 0; i < x.length; i++) {
+        if(x[i].disabled){console.log('Click ignorado: El boton está deshabilidado.');}
+        if(x[i].style.visibility=='hidden'){console.log('Click ignorado: El boton está escondido.');}
+        if(x[i].disabled==false && x[i].style.visibility=='visible'){
+          x[i].click();
+          x[i].setAttribute("type", "hidden");
+        }
+      }
+    }, tiempoespera+'000');
+  }
 }
 
 /*Gestor de ventanas*/
@@ -75,4 +103,4 @@ function anticaptcha() {
     }
 }
 
-export {dominio_base,espera,importar_libreria,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,crear_cookie,obtener_cookie,anticaptcha};
+//export {dominio_base,espera,importar_libreria,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,crear_cookie,obtener_cookie,anticaptcha};
