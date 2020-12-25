@@ -6,7 +6,7 @@ function obtenerMonedas() {
 }
 
 async function iniciarBot() {
-    await espera(2000);
+    espera(2000);
 
     /*AutoLogin*/
     if (window.location.pathname == "/") {
@@ -18,7 +18,7 @@ async function iniciarBot() {
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
         obtenerMonedas();
-        await espera(8000);
+        espera(8000);
         if (obtener_cookie("free-roll") < 8) {
             if (!obtener_cookie("free-roll")) {
                 crear_cookie("free-roll", 0, 1);
@@ -38,7 +38,7 @@ async function iniciarBot() {
     if (window.location.pathname.indexOf("/promotion") > -1) {
         let i = obtener_cookie("free-roll");
         crear_cookie("free-roll", ++i, 1)
-            await espera(2000);
+            espera(2000);
         window.location='/free';
     }
 }
