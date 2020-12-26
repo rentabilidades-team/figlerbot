@@ -198,6 +198,20 @@ function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener
   }
 }
 
+/*El siguiente ejemplo te permite guardar los datos de un módulo de manera simple.
+    Ejemplo: guardar_datos_modulo(100,24);//Guardo '100' de saldo en total en la cuenta y '24' el premio obtenido
+*/
+function guardar_datos_modulo(saldo,premio) {
+  try{saldo=parseInt(saldo);}catch(e){console.log(e);}
+  try{premio=parseInt(premio);}catch(e){console.log(e);}
+  var web=location.hostname
+  if(saldo==null){saldo=(-1);}
+  if(premio==null){premio=(-1);}
+  var objetomodulo = {name:web, balance:balance, reward:"white"};
+  web=web.replace('.','');
+  gestionar_datos_del_navegador(0,web,objetomodulo);
+}
+
 /*El siguiente ejemplo te permite guardar un dato en una cookie.
     Ejemplo: crear_cookie('cookie1','valorcookie1'); //Expiración de la cookie por defecto 1 día.
   También puedes editar el tiempo de expiración.

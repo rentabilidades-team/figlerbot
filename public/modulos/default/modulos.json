@@ -1,0 +1,29 @@
+[
+  {
+    "name": "adbtc.top",
+    "status": "disabled",
+    "setup": "https://r.adbtc.top/XXXXX",
+    "url": "https://adbtc.top/index",
+    "balance": 0,
+    "coin": "btc", 
+    "require": []
+  },
+  {
+    "name": "bigfreegiveaway.top",
+    "status": "disabled",
+    "setup": "https://bigfreegiveaway.com/?ref=XXXXX",
+    "url": "https://bigfreegiveaway.com/my-tickets/",
+    "balance": 0,
+    "coin": "eur", 
+    "require": []
+  },
+  {
+    "name": "freebitcoin.io",
+    "status": "disabled",
+    "setup": "https://freebitcoin.io/?ref=XXXXX",
+    "url": "https://freebitcoin.io/free",
+    "balance": 0,
+    "coin": "btc", 
+    "require": []
+  }
+]
