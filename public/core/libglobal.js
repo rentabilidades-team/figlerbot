@@ -204,7 +204,7 @@ function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener
 function guardar_datos_modulo(saldo,premio) {
   try{saldo=parseInt(saldo);}catch(e){console.log(e);}
   try{premio=parseInt(premio);}catch(e){console.log(e);}
-  var web=location.hostname
+  var web=location.hostname;
   if(saldo==null){saldo=(-1);}
   if(premio==null){premio=(-1);}
   var objetomodulo = {name:web, balance:balance, reward:premio};
