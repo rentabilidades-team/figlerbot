@@ -50,7 +50,7 @@ async function DetenerBot() {
 }
 
 
-$(document).ready(function(){if(localStorage.getItem('modoinicio')==1){document.getElementById('btnstartstopbot').click();}});//Linea para el inicio automático
+if(localStorage.getItem('modoinicio')==1){document.getElementById('btnstartstopbot').click();};//Linea para el inicio automático
 
 /* Funciones de los Modulos */
 
