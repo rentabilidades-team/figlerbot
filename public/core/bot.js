@@ -55,11 +55,7 @@ $(document).ready(function(){if(localStorage.getItem('modoinicio')==1){document.
 /* Funciones de los Modulos */
 
 const primeraLetraMayuscula = (cadena) => cadena.charAt(0).toUpperCase().concat(cadena.substring(1, cadena.length));//Primera letra en mayúscula
-function cuentaAtras(seconds) {var hour = Math.floor(seconds / 3600);hour = (hour < 10)? '0' + hour : hour;var minute = Math.floor((seconds / 60) % 60);minute = (minute < 10)? '0' + minute : minute; var second = seconds % 60;second = (second < 10)? '0' + second : second;return hour + ':' + minute + ':' + second;} //Muestra el conteo en formato "hora:mintutos:segundos"
-
-
-
-
+function cuentaAtras(seconds) {var hour = Math.floor(seconds / 3600);hour = (hour < 10)? '0' + hour : hour;var minute = Math.floor((seconds / 60) % 60);minute = (minute < 10)? '0' + minute : minute; var second = seconds % 60;second = (second < 10)? '0' + second : second;return hour + ':' + minute + ':' + second;} //Muestra el conteo en formato "hora:minutos:segundos"
 
 
 function modulo(id, direccionurl, segundosdeespera) {
@@ -67,7 +63,6 @@ function modulo(id, direccionurl, segundosdeespera) {
   this.direccionurl = direccionurl;
   this.segundosdeespera = segundosdeespera;   
 }
-
 
 
 function crear_Modulo(direccionurl,segundosdeespera) {

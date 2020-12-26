@@ -57,6 +57,7 @@
 // @include      http*://cosmo-sfera.biz/*
 // @include      http*://me-farm.me/*
 // @include      http*://wood-man.biz/*
+// @require      https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_deleteValue
@@ -64,13 +65,15 @@
 
 (function() {
     'use strict';
-    if(){
+    //var botiniciado=gestionar_datos_del_navegador(1,'EstadoBot');
+    var botiniciado=true;
+    if(botiniciado==true){
         import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
     }
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
 
-/*Shortlinks Pass*/
+/*Shortlinks Pass
     if(location.hostname.indexOf(".freebcc.org")>=0){
         window.location.href=$('button#makingdifferenttimer.btn-captchas').attr('onclick').replace(/ /g, "").substring(70).replace("');",'');
     }
@@ -108,4 +111,5 @@
             showElem('cl2');
         }
     }
+    */
 })();

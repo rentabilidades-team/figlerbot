@@ -196,6 +196,7 @@ function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener
       }
     }
   }
+}
 
 /*El siguiente ejemplo te permite guardar un dato en una cookie.
     Ejemplo: crear_cookie('cookie1','valorcookie1'); //Expiración de la cookie por defecto 1 día.
