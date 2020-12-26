@@ -56,7 +56,7 @@ function importar_libreria(url,callback,tipo) {
 function click(identificador) {
   var tiempoespera=numero_aleatorio(1000,5000), x, i;
   x = document.querySelectorAll(identificador);
-  if(x.length==0){console.log('Error: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
+  if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
     espera(tiempoespera);
     i=0;
