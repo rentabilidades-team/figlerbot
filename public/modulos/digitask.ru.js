@@ -7,7 +7,7 @@ importar_libglobal('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-
 async function iniciar_modulo() {
     if(window.location.pathname.indexOf('/notimer_fp')>=0){
         if(obtener_get('fpdoge')!=null){
-            insertar('form > div > input[type=text]',obtenget('fpdoge'));
+            insertar('form > div > input[type=text]',obtener_get('fpdoge'));
         }
         if(obtener_get('importar')==1){
             inyectar('form','<input type="hidden" name="guardarurl" value="1">');
