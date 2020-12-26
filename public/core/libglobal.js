@@ -43,7 +43,7 @@ function importar_libreria(url,callback,tipo) {
   if(tipo==null){tipo='text/javascript';}
   else{
     var s = document.createElement("script");
-    s.onload = callback;
+    if(callback!=null){s.onload = callback;}
     s.type = tipo;
     s.src = url;
     document.querySelector("head").appendChild(s);
@@ -72,7 +72,7 @@ function click(identificador) {
 /*Introducir un valor a un elemento de la web.
     Ejemplo: insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en el input de la web');
   Si se quiere introducir el valor de manera masiva a todos los elementos, puedes añadir "true".
-    Ejemplo: insertar('input#id-del-input.class-del-input.otra-class-del-input','Texto insertado en el input de la web',true);
+    Ejemplo: insertar('input','Texto insertado en todos los input de la web',true);
 */
 function insertar(identificador,texto,masivo) {
   var x, i;
@@ -94,7 +94,7 @@ function insertar(identificador,texto,masivo) {
 /*El siguiente ejemplo te permite inyectar un elemento a la web.
     Ejemplo: inyectar('form#id-del-form.class-del-form.otra-class','<input type="hidden" name="nombre" value="1">');
   Si se quiere inyectar el valor de manera masiva a todos los elementos, puedes añadir "true".
-    Ejemplo: inyectar('form#id-del-form.class-del-form.otra-class','<input type="hidden" name="nombre" value="1">',true);
+    Ejemplo: inyectar('form','<input type="hidden" name="nombre" value="1">',true); //Inyectado en todos los form
 */
 function inyectar(identificador,texto,masivo) {
   var x, i;
