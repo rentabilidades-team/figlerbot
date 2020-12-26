@@ -207,7 +207,7 @@ function guardar_datos_modulo(saldo,premio) {
   var web=location.hostname
   if(saldo==null){saldo=(-1);}
   if(premio==null){premio=(-1);}
-  var objetomodulo = {name:web, balance:balance, reward:"white"};
+  var objetomodulo = {name:web, balance:balance, reward:premio};
   web=web.replace('.','');
   gestionar_datos_del_navegador(0,web,objetomodulo);
 }
