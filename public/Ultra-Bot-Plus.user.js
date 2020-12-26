@@ -68,7 +68,7 @@
     //var botiniciado=gestionar_datos_del_navegador(1,'EstadoBot');
     var botiniciado=true;
     if(botiniciado==true){
-        import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
+        importar_libreria('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
     }
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
