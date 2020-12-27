@@ -3,7 +3,7 @@ function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la 
 /*El siguiente ejemplo te permite esperar un tiempo para realizar una acción.
   Ejemplo: espera(1000);//Espera de 1 segundo
 */
-function espera(ms){//
+function espera(ms){
   if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
   else{
     try{ms=parseInt(ms);}catch(e){console.log(e);}
@@ -16,7 +16,7 @@ function espera(ms){//
 /*El siguiente ejemplo te permite generar un numero aleatorio.
     Ejemplo: var num=numero_aleatorio(1,5);//Devuelve un numero aleatorio entre el numero 1 y el munero 5
 */
-function numero_aleatorio(min,max) {//Permite obtener un numero aleatorio
+function numero_aleatorio(min,max) {
   if(min==null || max==null){console.log('Error: numero_aleatorio(min,max); El valor min o max es null.');}
   else{
     try{min=parseInt(min);max=parseInt(max);}catch(e){console.log(e);}
@@ -65,6 +65,28 @@ function click(identificador) {
     if(x[i].disabled==false && x[i].style.visibility!='hidden' && x[i].style.display!='none'){
       x[i].click();
       x[i].disabled = true;
+    }
+  }
+}
+
+/*Obtener el valor de un elemento de la web.
+    Ejemplo: obtener('input#id-del-input.class-del-input.otra-class-del-input','val');
+  Tambien se puede obtener su html completo...
+    Ejemplo: obtener('input#id-del-input.class-del-input.otra-class-del-input','html');
+*/
+function obtener(identificador,tipo) {
+  var x, i;
+  if(tipo==null){tipo='html';}
+  x = document.querySelectorAll(identificador);
+  if(x.length==0){console.log('Error: insertar(identificador,texto); No se pudo encontrar el identificador '+identificador+' .');}
+  else{
+    if(tipo=='html'){return x[0].outerHTML.trim();}
+    if(tipo=='val'){
+      if(x[0].innerText!=''){
+        return x[0].innerText.trim();
+      }else{
+        return x[0].value.trim();
+      }
     }
   }
 }

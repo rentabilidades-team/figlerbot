@@ -7,7 +7,7 @@ importar_libglobal('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-
 async function iniciar_modulo() {
     if(obtener_get('importar')==1){
         if(window.location.pathname.indexOf('/dashboard')>=0){
-            location.replace('//'+dominio_base()+'/expresscrypto?ecid='+$('u#copyIdTarget.glow').html().trim());
+            location.replace('//'+dominio_base()+'/expresscrypto?ecid='+obtener('u#copyIdTarget.glow','val'));
         }
     }
 }
