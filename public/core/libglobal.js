@@ -219,11 +219,12 @@ function guardar_datos_modulo(saldo,premio) {
   El siguiente ejemplo te permite recibir el valor de una cookie.
     Ejemplo: var valor=obtener_cookie('cookie1');
   El siguiente ejemplo te permite eliminar una cookie.
-    Ejemplo: var valor=crear_cookie('cookie1','',0); //Cookie 1 eliminada.
+    Ejemplo: var valor=crear_cookie('cookie1'); //cookie1 eliminada.
 */
 function crear_cookie(cname, cvalue, exdays) {
-  if(cname==null || cvalue==null){console.log('Error: crear_cookie(cname,cvalue); El valor cname o cvalue es null.');}
+  if(cname==null){console.log('Error: crear_cookie(cname,cvalue); El valor cname es null.');}
   else{
+    if(cvalue==null){exdays=0;}
     if(exdays==null){exdays=1;}
     try{exdays=parseInt(exdays);}catch(e){console.log(e);}
     var d = new Date();
