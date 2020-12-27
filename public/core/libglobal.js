@@ -70,9 +70,9 @@ function click(identificador) {
 }
 
 /*Obtener el valor de un elemento de la web.
-    Ejemplo: obtener('input#id-del-input.class-del-input.otra-class-del-input','val');
+    Ejemplo: var dato=obtener('input#id-del-input.class-del-input.otra-class-del-input','val');
   Tambien se puede obtener su html completo...
-    Ejemplo: obtener('input#id-del-input.class-del-input.otra-class-del-input','html');
+    Ejemplo: var dato=obtener('input#id-del-input.class-del-input.otra-class-del-input','html');
 */
 function obtener(identificador,tipo) {
   var x, i;
