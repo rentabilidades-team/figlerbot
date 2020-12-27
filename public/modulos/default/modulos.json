@@ -13,7 +13,7 @@
     "status": "disabled",
     "setup": "https://bigfreegiveaway.com/?ref=XXXXX",
     "url": "https://bigfreegiveaway.com/my-tickets/",
-    "balance": 0,
+    "balance": -1,
     "coin": "eur", 
     "require": []
   },
