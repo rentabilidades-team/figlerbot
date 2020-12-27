@@ -97,6 +97,31 @@ function abrirURL(id, url) {
   return devuelve;
 }
 
+/*El siguiente ejemplo te permite obtener un archivo json.
+    Ejemplo: var respuesta=obtener_json('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/default/modulos.json');
+*/
+function obtener_json(url) {
+  if(url==null){console.log('Error: obtener_json(url); El valor url es null.');}
+  else{
+    var getJSON = function(url, callback) {
+      var p = new XMLHttpRequest();
+      p.open('get', url, true);
+      p.responseType = 'json';
+      p.onload = function() {
+        var status = p.status;
+        if (status == 200) {callback(null, p.response);}
+        else{callback(status);}
+      };
+      p.send();
+    };
+
+    getJSON(url, function(e, data) {
+      if (e != null) {console.log('Error: obtener_json(url); Algo salió mal --> ' + e);}
+      else{return data.result;}
+    });
+  }
+}
+
 /* Preparado para futuras versiones...
 
 function usarModoGM(id,url) {
