@@ -82,16 +82,18 @@ function mostrar_Modulos(){
 
 function obten_Cantidad_Total_De_Modulos(){return modulos.length;}
 
-/*Funciones para abrir las URL*/
+/*Funciones para abrir las URL
+    Ejemplo: abrir_url('adbtctop', 'https://adbtc.top/index');
+*/
 
-function abrirURL(id, url) {
+function abrir_url(name, url) {
   var devuelve;
   if(localStorage.getItem('modonavegacion')==0){
     devuelve=window.open(url, '_blank');
     devuelve.blur();
   }
   if(localStorage.getItem('modonavegacion')==1){
-    devuelve=window.open(url,'Ventana - '+id, 'menubar=no, scrollbars=yes, statusbar=no, tittlebar=yes, width=40, height=40');
+    devuelve=window.open(url,'Ventana - '+name, 'menubar=no, scrollbars=yes, statusbar=no, tittlebar=yes, width=40, height=40');
     devuelve.blur();
   }
   return devuelve;

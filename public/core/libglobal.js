@@ -199,25 +199,27 @@ function gestionar_datos_del_navegador(accion,nombre,valor) {//Accion (0 obtener
 }
 
 /*El siguiente ejemplo te permite guardar los datos de un módulo de manera simple.
-    Ejemplo: guardar_datos_modulo(100,24);//Guardo '100' de saldo en total en la cuenta y '24' el premio obtenido
+    Ejemplo: guardar_datos_modulo(1000,100,24);//El bot esperará 1 segundo para volver a ejecutar el módulo, guardo '100' de saldo en total en la cuenta y '24' es el dinero obtenido.
 */
-function guardar_datos_modulo(saldo,premio) {
-  try{saldo=parseInt(saldo);}catch(e){console.log(e);}
-  try{premio=parseInt(premio);}catch(e){console.log(e);}
-  var web=location.hostname;
-  if(saldo==null){saldo=(-1);}
-  if(premio==null){premio=(-1);}
-  var objetomodulo = {name:web, balance:balance, reward:premio};
-  web=web.replace('.','');
-  gestionar_datos_del_navegador(0,web,objetomodulo);
+function guardar_datos_modulo(espera,saldo,ganado) {
+  if(espera==null){console.log('Error: guardar_datos_modulo(espera,saldo,ganado); El valor espera es null.');}
+  else{
+    var web=location.hostname;
+    if(saldo==null){saldo=(-1);}
+    if(ganado==null){ganado=(-1);}
+    try{espera=parseInt(espera);}catch(e){console.log(e);}
+    try{ganado=parseInt(ganado);}catch(e){console.log(e);}
+    try{premio=parseInt(premio);}catch(e){console.log(e);}
+    var objetomodulo = {name:web, wait:espera, balance:balance, reward:ganado};
+    web=web.replace('.','');
+    gestionar_datos_del_navegador(0,web,objetomodulo);
+  }
 }
 
 /*El siguiente ejemplo te permite guardar un dato en una cookie.
     Ejemplo: crear_cookie('cookie1','valorcookie1'); //Expiración de la cookie por defecto 1 día.
   También puedes editar el tiempo de expiración.
     Ejemplo: crear_cookie('cookie1','valorcookie1',4); //Expiración de la cookie en 4 días.
-  El siguiente ejemplo te permite recibir el valor de una cookie.
-    Ejemplo: var valor=obtener_cookie('cookie1');
   El siguiente ejemplo te permite eliminar una cookie.
     Ejemplo: var valor=crear_cookie('cookie1'); //cookie1 eliminada.
 */
@@ -233,6 +235,10 @@ function crear_cookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 }
+
+/*El siguiente ejemplo te permite recibir el valor de una cookie.
+    Ejemplo: var valor=obtener_cookie('cookie1');
+*/
 function obtener_cookie(cname) {
   if(cname==null){console.log('Error: obtener_cookie(cname); El valor cname es null.');}
   else{
