@@ -1,12 +1,5 @@
 import * as libglobal from "https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
 
-function obtenerMonedas() {
-    if ($("button.main-button-2.roll-button.bg-2").is(':visible') == true) {
-        $("button.main-button-2.roll-button.bg-2").click();
-        $("button.main-button-2.roll-button.bg-2").hide();
-    }
-}
-
 async function template() {
     libglobal.espera(2000);
 
@@ -19,23 +12,23 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        obtenerMonedas();
-        libglobal.espera(10000);
-        if (libglobal.obtener_cookie("free-roll") < 8) {
-            if (!libglobal.obtener_cookie("free-roll")) {
-                libglobal.crear_cookie("free-roll", 0);
-            }
-            let i = libglobal.obtener_cookie("free-roll");
-            var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"]
-            window.location = '/promotion/' + codes[i]
-        } else {
-            obtenerMonedas();
-            if ($("div > div.minutes").is(':visible') == true) {
-                libglobal.cerrar_modulo();
+        if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
+            libglobal.espera(15000);
+            if (libglobal.obtener_cookie("free-roll") < 8) {
+                if (!libglobal.obtener_cookie("free-roll")) {
+                    libglobal.crear_cookie("free-roll", 0);
+                }
+                let i = libglobal.obtener_cookie("free-roll");
+                var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"]
+                window.location = '/promotion/' + codes[i]
+            } else {
+                libglobal.click("button.main-button-2.roll-button.bg-2")
+                if ($("div > div.minutes").is(':visible') == true) {
+                    libglobal.cerrar_modulo();
+                }
             }
         }
     }
-
 
     /*AutoFreeRolls*/
     if (window.location.pathname.indexOf("/promotion") > -1) {
