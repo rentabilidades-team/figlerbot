@@ -6,7 +6,7 @@ async function template() {
     /*AutoLogin*/
     if (window.location.pathname == "/") {
         if ($('input[type=email]:first').val() != '' && $('input[type=password]:first').val() != '') {
-            $("button.main-button.main-button-yellow.login.bg-3").click();
+            libglobal.click("button.main-button.main-button-yellow.login.bg-3")
         }
     }
 
