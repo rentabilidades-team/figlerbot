@@ -61,7 +61,7 @@ function click(identificador) {
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
     console.log('Disabled: '+x[i].disabled);
-    style = window.getComputedStyle(x[i]);
+    style = x[i].getComputedStyle();
     console.log('Estilo: '+style.visibility+' Estilo: '+style.display);
     espera(tiempoespera);
     i=0;
