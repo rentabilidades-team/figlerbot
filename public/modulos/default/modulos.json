@@ -25,5 +25,122 @@
     "balance": 0,
     "coin": "btc", 
     "require": []
+  },
+  {
+    "name": "free-ltc.com",
+    "status": "disabled",
+    "setup": "https://free-ltc.com/?ref=XXXXX",
+    "url": "https://free-ltc.com/free",
+    "balance": 0,
+    "coin": "ltc", 
+    "require": []
+  },
+  {
+    "name": "free-tron.com",
+    "status": "disabled",
+    "setup": "https://free-tron.com/?ref=XXXXX",
+    "url": "https://free-tron.com/free",
+    "balance": 0,
+    "coin": "trx", 
+    "require": []
+  },
+  {
+    "name": "freebinancecoin.com",
+    "status": "disabled",
+    "setup": "https://freebinancecoin.com/?ref=XXXXX",
+    "url": "https://freebinancecoin.com/free",
+    "balance": 0,
+    "coin": "bnb", 
+    "require": []
+  },
+  {
+    "name": "freecardano.com",
+    "status": "disabled",
+    "setup": "https://freecardano.com/?ref=XXXXX",
+    "url": "https://freecardano.com/free",
+    "balance": 0,
+    "coin": "ada", 
+    "require": []
+  },
+  {
+    "name": "freechain.link",
+    "status": "disabled",
+    "setup": "https://freechain.link/?ref=XXXXX",
+    "url": "https://freechain.link/free",chain
+    "balance": 0,dash
+    "coin": "link", 
+    "require": []
+  },
+  {
+    "name": "freedash.io",
+    "status": "disabled",
+    "setup": "https://freedash.io/?ref=XXXXX",
+    "url": "https://freedash.io/free",
+    "balance": 0,
+    "coin": "dash", 
+    "require": []
+  },
+  {
+    "name": "freeethereum.com",
+    "status": "disabled",
+    "setup": "https://freeethereum.com/?ref=XXXXX",
+    "url": "https://freeethereum.com/free",
+    "balance": 0,
+    "coin": "eth", 
+    "require": []
+  },
+  {
+    "name": "freenem.com",
+    "status": "disabled",
+    "setup": "https://freenem.com/?ref=XXXXX",
+    "url": "https://freenem.com/free",
+    "balance": 0,
+    "coin": "xem", 
+    "require": []
+  },
+  {
+    "name": "freeneo.io",
+    "status": "disabled",
+    "setup": "https://freeneo.io/?ref=XXXXX",
+    "url": "https://freeneo.io/free",
+    "balance": 0,
+    "coin": "neo", 
+    "require": []
+  },
+  {
+    "name": "freesteam.io",
+    "status": "disabled",
+    "setup": "https://freesteam.io/?ref=XXXXX",
+    "url": "https://freesteam.io/free",
+    "balance": 0,
+    "coin": "XXX", 
+    "require": []
+  },
+  {
+    "name": "freetether.com",
+    "status": "disabled",
+    "setup": "https://freetether.com/?ref=XXXXX",
+    "url": "https://freetether.com/free",
+    "balance": 0,
+    "coin": "usdt", 
+    "require": []
+  },
+  {
+    "name": "freeusdcoin.com",
+    "status": "disabled",
+    "setup": "https://freeusdcoin.com/?ref=XXXXX",
+    "url": "https://freeusdcoin.com/free",
+    "balance": 0,
+    "coin": "usdc", 
+    "require": []
+  },
+  {
+    "name": "coinfaucet.io",
+    "status": "disabled",
+    "setup": "https://coinfaucet.io/?ref=XXXXX",
+    "url": "https://coinfaucet.io/free",
+    "balance": 0,
+    "coin": "xrp", 
+    "require": []
   }
 ]
