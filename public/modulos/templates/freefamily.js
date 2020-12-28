@@ -1,14 +1,7 @@
 import * as libglobal from "https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
 
-function obtenerMonedas() {
-    if ($("button.main-button-2.roll-button.bg-2").is(':visible') == true) {
-        $("button.main-button-2.roll-button.bg-2").click();
-        $("button.main-button-2.roll-button.bg-2").hide();
-    }
-}
-
 async function template() {
-    espera(2000);
+    libglobal.espera(2000);
 
     /*AutoLogin*/
     if (window.location.pathname == "/") {
@@ -19,28 +12,28 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        obtenerMonedas();
-        espera(8000);
-        if (obtener_cookie("free-roll") < 8) {
-            if (!obtener_cookie("free-roll")) {
-                crear_cookie("free-roll", 0, 1);
+        click("button.main-button-2.roll-button.bg-2")
+        libglobal.espera(8000);
+        if (libglobal.obtener_cookie("free-roll") < 8) {
+            if (!libglobal.obtener_cookie("free-roll")) {
+                libglobal.crear_cookie("free-roll", 0);
             }
-            let i = obtener_cookie("free-roll");
+            let i = libglobal.obtener_cookie("free-roll");
             var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"]
             window.location='/promotion/' + codes[i]
         }else{
-        	obtenerMonedas();
+        	click("button.main-button-2.roll-button.bg-2")
         	if ($("div > div.minutes").is(':visible') == true) {
-                cerrar_modulo();
+                libglobal.cerrar_modulo();
             }
         }
     }
 
     /*AutoFreeRolls*/
     if (window.location.pathname.indexOf("/promotion") > -1) {
-        let i = obtener_cookie("free-roll");
-        crear_cookie("free-roll", ++i, 1)
-            espera(2000);
+        let i = libglobal.obtener_cookie("free-roll");
+        libglobal.crear_cookie("free-roll", ++i, 1)
+            libglobal.espera(2000);
         window.location='/free';
     }
 }
