@@ -20,7 +20,7 @@ async function iniciar_modulo() {
     }
     if(window.location.pathname.indexOf('/payeer')>=0){
         document.getElementById('importarpayeer').disabled = false;
-        document.getElementById("importarexpresscrypto").onclick = function() {
+        document.getElementById("importarpayeer").onclick = function() {
             window.location.href='//payeer.com/en/account/log/?session=402608&importar=1';
         };
     }
