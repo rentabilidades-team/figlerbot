@@ -60,8 +60,9 @@ function click(identificador) {
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
+    console.log('Disabled: '+x[i].disabled);
     style = window.getComputedStyle(x[i]);
-    console.log('Disabled: '+x[i].disabled+' Estilo: '+style.visibility+' Estilo: '+style.display);
+    console.log('Estilo: '+style.visibility+' Estilo: '+style.display);
     espera(tiempoespera);
     i=0;
     if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
