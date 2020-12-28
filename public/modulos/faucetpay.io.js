@@ -1,5 +1,5 @@
 function importar_libglobal(url,callback) {//Permite importar la libreria global
-    if(url==null){console.log('Error: Es necesario introducir la url de la libreria.')}
+    if(url==null){console.log('Error: Es necesario introducir la url de la libreria.');}
     else{var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);}
 }
 importar_libglobal('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js',iniciar_modulo);
@@ -7,14 +7,23 @@ importar_libglobal('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-
 async function iniciar_modulo() {
     if(obtener_get('importar')==1){
         if(window.location.pathname.indexOf('/page/user-admin/deposit')>=0){
-            sessionStorage.setItem('btc',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(1) > div > div.card-body.text-center > input','val'));
-            sessionStorage.setItem('doge',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(3) > div > div.card-body.text-center > input','val'));
-            sessionStorage.setItem('ltc',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(4) > div > div.card-body.text-center > input','val'));
-            sessionStorage.setItem('bch',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(5) > div > div.card-body.text-center > input','val'));
-            sessionStorage.setItem('dash',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(6) > div > div.card-body.text-center > input','val'));
-            sessionStorage.setItem('dgb',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(7) > div > div.card-body.text-center > input','val'));
-            sessionStorage.setItem('trx',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(8) > div > div.card-body.text-center > input','val'));
-            sessionStorage.setItem('usdt',obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(9) > div > div.card-body.text-center > input','val'));
+            var temp=null;
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(1) > div > div.card-body.text-center > input','val');
+            sessionStorage.setItem('btc',temp);
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(3) > div > div.card-body.text-center > input','val');
+            sessionStorage.setItem('doge',temp);
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(4) > div > div.card-body.text-center > input','val');
+            sessionStorage.setItem('ltc',temp);
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(5) > div > div.card-body.text-center > input','val');
+            sessionStorage.setItem('bch',temp);
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(6) > div > div.card-body.text-center > input','val');
+            sessionStorage.setItem('dash',temp);
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(7) > div > div.card-body.text-center > input','val');
+            sessionStorage.setItem('dgb',temp);
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(8) > div > div.card-body.text-center > input','val')
+            sessionStorage.setItem('trx',temp);
+            temp=obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(9) > div > div.card-body.text-center > input','val');
+            sessionStorage.setItem('usdt',temp);
             location.replace('//'+window.location.hostname+'/account/settings?importar=1');
         }
         if(window.location.pathname.indexOf('/account/settings')>=0){
