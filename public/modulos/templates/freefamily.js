@@ -13,7 +13,7 @@ async function template() {
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
         libglobal.click("button.main-button-2.roll-button.bg-2")
-        libglobal.espera(8000);
+        libglobal.espera(12000);
         if (libglobal.obtener_cookie("free-roll") < 8) {
             if (!libglobal.obtener_cookie("free-roll")) {
                 libglobal.crear_cookie("free-roll", 0);
