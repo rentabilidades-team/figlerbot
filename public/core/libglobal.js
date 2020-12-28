@@ -56,11 +56,12 @@ function importar_libreria(url,callback,tipo) {
     Ejemplo: click('button#id-del-boton.class-del-boton.otra-class-del-boton');
 */
 function click(identificador) {
-  var tiempoespera=numero_aleatorio(1000,5000), x, i;
+  var tiempoespera=numero_aleatorio(1000,5000), x, i, style;
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
-    console.log('Disabled: '+x[i].disabled+' Estilo: '+x[i].style.visibility+' Estilo: '+x[i].style.display);
+    style = window.getComputedStyle(x[i]);
+    console.log('Disabled: '+x[i].disabled+' Estilo: '+style.visibility+' Estilo: '+style.display);
     espera(tiempoespera);
     i=0;
     if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
