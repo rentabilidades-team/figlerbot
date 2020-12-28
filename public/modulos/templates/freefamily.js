@@ -24,7 +24,7 @@ async function template() {
             } else {
                 libglobal.click("button.main-button-2.roll-button.bg-2")
                 if ($("div > div.minutes").is(':visible') == true) {
-                    libglobal.cerrar_modulo(true);
+                    libglobal.cerrar_modulo();
                 }
             }
         }
