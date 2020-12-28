@@ -166,7 +166,7 @@ function ocultar(identificador,masivo) {
 function cerrar_modulo(valor){
   setInterval(function(){
     if (document.readyState === "complete") {//Página cargada completamente
-      if(valor==null){valor=true;}
+      if(valor==null){valor=false;}
       if(valor==false){try{window.close();}catch(e){console.log(e);}}
       if(valor==true){window.location.href='//'+dominiobase+'/tarea-finalizada';}
     }
