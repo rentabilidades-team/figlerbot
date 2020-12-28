@@ -64,12 +64,18 @@
 
 (function() {
     'use strict';
-    //var botiniciado=gestionar_datos_del_navegador(1,'EstadoBot');
-    var botiniciado=true;
-    if(botiniciado==true){
-        import('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
+    function importar_libreria_base(url,callback) {var s = document.createElement("script");s.onload = callback;s.type = 'module';s.src = url;document.querySelector("head").appendChild(s);}
+    importar_libreria_base('https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/core/libglobal.js',base_bot);
+    function base_bot() {
+        //var botiniciado=gestionar_datos_del_navegador(1,'EstadoBot');
+        var botiniciado=true;
+        console.log(dominio_base()+'1');
+        if(botiniciado==true){
+            import('https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
+        }
     }
-
+    
+console.log(dominio_base()+'2');
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
 
 /*Shortlinks Pass
