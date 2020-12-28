@@ -60,13 +60,12 @@ function click(identificador) {
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
+    console.log('Disabled: '+x[i].disabled+' Estilo: '+x[i].style.visibility+' Estilo: '+x[i].style.display);
     espera(tiempoespera);
     i=0;
     if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
     if(x[i].style.visibility=='hidden' || x[i].style.display=='none'){console.log('Click ignorado: El boton está escondido.');}
     if(x[i].disabled==false && x[i].style.visibility!='hidden' && x[i].style.display!='none'){
-
-      console.log('Disabled: '+x[i].disabled+' Estilo: '+x[i].style.visibility+' Estilo: '+x[i].style.display);
       x[i].click();
       x[i].disabled = true;
     }
