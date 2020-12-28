@@ -27,7 +27,7 @@ async function iniciar_modulo() {
         }
     }else{
         if(window.location.pathname.indexOf('/page/user-admin')>=0){
-            if(document.referrer.indexOf(dominio_base())>=0){
+            if(document.referrer.indexOf(libglobal.dominio_base())>=0){
                 libglobal.cerrar_modulo();
             }
         }

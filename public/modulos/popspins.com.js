@@ -1,8 +1,4 @@
-function importar_libglobal(url,callback) {//Permite importar la libreria global
-    if(url==null){console.log('Error: Es necesario introducir la url de la libreria.');}
-    else{var s = document.createElement("script");s.onload = callback;s.src = url;document.querySelector("head").appendChild(s);}
-}
-importar_libglobal('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/core/libglobal.js',iniciar_modulo);
+import * as libglobal from "https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
 
 async function iniciar_modulo() {
     setInterval(function(){
@@ -11,12 +7,12 @@ async function iniciar_modulo() {
             if($('input#playFancy').is(':enabled')==true && $('input#playFancy').is(':visible')==true && $('input#playFancy').val()=='' || $('input#playFancy').val()=='Play'){$('input#playFancy:enabled').click();}
             var numaleatorio;
             if($('div#100redblackwrapper').is(':visible')==true){
-                numaleatorio=aleatorio(1,2);
+                numaleatorio=libglobal.numero_aleatorio(1,2);
                 if(numaleatorio==1){open_case('red');}else{open_case('black');}
                 $('div#100redblackwrapper').hide();
             }
             if($('div#100chestswrapper').is(':visible')==true){
-                numaleatorio=aleatorio(1,3);
+                numaleatorio=libglobal.numero_aleatorio(1,3);
                 openChest(numaleatorio);
                 $('div#100chestswrapper').hide();
             }
@@ -27,8 +23,9 @@ async function iniciar_modulo() {
             if($('div#claimouter').is(':visible')==true){
                 $('div#claimouter > a#requestdaily')[0].click();
             }else{
-                cerrar_modulo();
+                libglobal.cerrar_modulo();
             }
         }
     },5000);
 }
+iniciar_modulo();
