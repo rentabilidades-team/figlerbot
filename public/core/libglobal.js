@@ -62,11 +62,10 @@ function click(identificador) {
   else{
     i=0;
     if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
-    style = window.getComputedStyle(x[i],'::after');
-    console.log('Estilo: '+style.getPropertyValue('visibility') +' Estilo: '+style.getPropertyValue('display') );
+    style = window.getComputedStyle(x[i]);
     espera(tiempoespera);
-    if(x[i].style.visibility=='hidden' || x[i].style.display=='none'){console.log('Click ignorado: El boton está escondido.');}
-    if(x[i].disabled==false && x[i].style.visibility!='hidden' && x[i].style.display!='none'){
+    if(style.getPropertyValue('visibility')=='hidden' || style.getPropertyValue('display')=='none'){console.log('Click ignorado: El boton está escondido.');}
+    if(x[i].disabled==false && style.getPropertyValue('visibility')!='hidden' && style.getPropertyValue('display')!='none'){
       x[i].click();
       x[i].disabled = true;
     }
