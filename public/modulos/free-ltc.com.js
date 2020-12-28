@@ -1,6 +1,3 @@
-import * as libglobal from "https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
+import * as freefamily from "https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/modulos/templates/freefamily.js";
 
-async function iniciar_modulo() {
-    libglobal.importar_libreria('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/templates/freefamily.js');
-}
-iniciar_modulo();
+freefamily.iniciarBot();

@@ -1,3 +1,5 @@
+import * as libglobal from "https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
+
 function obtenerMonedas() {
     if ($("button.main-button-2.roll-button.bg-2").is(':visible') == true) {
         $("button.main-button-2.roll-button.bg-2").click();
@@ -5,7 +7,7 @@ function obtenerMonedas() {
     }
 }
 
-async function iniciarBot() {
+async function template() {
     espera(2000);
 
     /*AutoLogin*/
@@ -42,5 +44,4 @@ async function iniciarBot() {
         window.location='/free';
     }
 }
-
-iniciarBot();
+export {template};
