@@ -20,7 +20,7 @@ async function template() {
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
         obtenerMonedas();
-        await timer(10000);
+        libglobal.espera(10000);
         if (libglobal.obtener_cookie("free-roll") < 8) {
             if (!libglobal.obtener_cookie("free-roll")) {
                 libglobal.crear_cookie("free-roll", 0);
