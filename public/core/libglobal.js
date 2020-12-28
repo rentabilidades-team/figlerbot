@@ -1,4 +1,6 @@
-function dominio_base() {return 'rentabilidadesweb.runkodapps.com';}//Aporta la base del proyecto
+var dominiobase='rentabilidadesweb.runkodapps.com';
+
+function dominio_base() {return dominiobase;}//Aporta la base del proyecto
 
 /*El siguiente ejemplo te permite esperar un tiempo para realizar una acción.
   Ejemplo: espera(1000);//Espera de 1 segundo
@@ -166,7 +168,7 @@ function cerrar_modulo(valor){
     if (document.readyState === "complete") {//Página cargada completamente
       if(valor==null){valor=true;}
       if(valor==false){try{window.close();}catch(e){console.log(e);}}
-      if(valor==true){window.location.href='//'+dominioBase()+'/tarea-finalizada';}
+      if(valor==true){window.location.href='//'+dominiobase+'/tarea-finalizada';}
     }
   },500);
 }
