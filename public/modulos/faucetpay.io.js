@@ -11,6 +11,7 @@ async function iniciar_modulo() {
             temp=libglobal.obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(4) > div > div.card-body.text-center > input','val');
             sessionStorage.setItem('ltc',temp);
             temp=libglobal.obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(5) > div > div.card-body.text-center > input','val');
+            temp=temp.replace('bitcoincash:','');
             sessionStorage.setItem('bch',temp);
             temp=libglobal.obtener('body > div.content.content-fixed > div > div.row.row-xs > div > div.row > div:nth-child(6) > div > div.card-body.text-center > input','val');
             sessionStorage.setItem('dash',temp);
