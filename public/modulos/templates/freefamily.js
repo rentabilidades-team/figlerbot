@@ -12,7 +12,7 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        click("button.main-button-2.roll-button.bg-2")
+        libglobal.click("button.main-button-2.roll-button.bg-2")
         libglobal.espera(8000);
         if (libglobal.obtener_cookie("free-roll") < 8) {
             if (!libglobal.obtener_cookie("free-roll")) {
@@ -22,7 +22,7 @@ async function template() {
             var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"]
             window.location='/promotion/' + codes[i]
         }else{
-        	click("button.main-button-2.roll-button.bg-2")
+        	libglobal.click("button.main-button-2.roll-button.bg-2")
         	if ($("div > div.minutes").is(':visible') == true) {
                 libglobal.cerrar_modulo();
             }
