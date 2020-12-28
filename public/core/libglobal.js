@@ -62,7 +62,6 @@ function click(identificador) {
   else{
     i=0;
     if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
-    console.log('Disabled: '+x[i].disabled);
     style = window.getComputedStyle(x[i]);
     console.log('Estilo: '+style.getPropertyValue('visibility') +' Estilo: '+style.getPropertyValue('display') );
     espera(tiempoespera);
