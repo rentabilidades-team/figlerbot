@@ -30,9 +30,10 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
-            wait()
-        }
+        //if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
+        //    wait()
+        //}
+        console.log(libglobal.click("button.main-button-2.roll-button.bg-2"));
 
         if ($("div > div.minutes").is(':visible') == true) {
             libglobal.cerrar_modulo();
