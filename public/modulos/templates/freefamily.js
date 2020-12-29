@@ -30,7 +30,6 @@ async function template() {
                 }
             }
         }
-    }
 
 /*AutoFreeRolls*/
 if (window.location.pathname.indexOf("/promotion") > -1) {
@@ -38,6 +37,7 @@ if (window.location.pathname.indexOf("/promotion") > -1) {
     libglobal.crear_cookie("free-roll", ++i, 1)
     libglobal.espera(2000);
     window.location = '/free';
+}
 }
 
 export {
