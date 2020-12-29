@@ -30,7 +30,6 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        libglobal.espera(5000);
         libglobal.click("button.main-button-2.roll-button.bg-2");
         esperar_reloj();
     }
