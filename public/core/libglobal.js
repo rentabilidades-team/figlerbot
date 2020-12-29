@@ -15,17 +15,6 @@ function espera(ms){
   }
 }
 
-/*El siguiente ejemplo te permite esperar hasta finalizar la carga completa de la página.
-    Ejemplo: await espera_carga();
-*/
-function espera_carga(){
-  var espera=0;
-  do {
-    if(document.readyState!='loading'){espera=1;}
-  }
-  while(espera!=0);
-}
-
 /*El siguiente ejemplo te permite generar un numero aleatorio.
     Ejemplo: var num=numero_aleatorio(1,5);//Devuelve un numero aleatorio entre el numero 1 y el munero 5
 */
