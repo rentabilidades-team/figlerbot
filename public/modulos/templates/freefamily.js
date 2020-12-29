@@ -1,4 +1,4 @@
-import * as libglobal from "https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/core/libglobal.js";
+import * as libglobal from "../../core/libglobal.js";
 
 async function template() {
     libglobal.espera(2000);
