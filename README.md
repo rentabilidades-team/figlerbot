@@ -18,7 +18,7 @@ Ultra bot plus es un robot gratuito de código abierto que te permite generar di
 
 1 - Instala el complemento "[Tampermonkey](https://www.tampermonkey.net/)" en tu navegador.
 
-2 - Instala [nuestro script](https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js) en tu ordenador.
+2 - Instala [nuestro script](https://universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js) en tu ordenador.
 
 # Ejecución del bot
 
