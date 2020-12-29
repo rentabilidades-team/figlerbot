@@ -41,8 +41,8 @@ function numero_aleatorio(min,max) {
     }
 */
 function importar_libreria(url,callback,tipo) {
-  if(url==null){console.log('Error: importar_libreria(url,callback); El valor url es null.');}
   if(tipo==null){tipo='text/javascript';}
+  if(url==null){console.log('Error: importar_libreria(url,callback); El valor url es null.');}
   else{
     var s = document.createElement("script");
     if(callback!=null){s.onload = callback;}
