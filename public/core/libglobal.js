@@ -53,10 +53,10 @@ function importar_libreria(url,callback,tipo) {
 }
 
 /*El siguiente ejemplo te permite realizar un click con simulación humana.
-    Ejemplo: click('button#id-del-boton.class-del-boton.otra-class-del-boton');
+    Ejemplo: click('button#id-del-boton.class-del-boton.otra-class-del-boton'); //Devuelve true si hace click, false si no lo realiza.
 */
 function click(identificador) {
-  var tiempoespera=numero_aleatorio(1000,5000), x, i, style, visibility, display;
+  var tiempoespera=numero_aleatorio(1000,5000), x, i, style, visibility, display, status=false;
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
@@ -80,9 +80,11 @@ function click(identificador) {
     espera(tiempoespera);
     if(x[i].disabled==false && visibility!='hidden' && display!='none'){
       x[i].click();
+      status=true;
       x[i].disabled = true;
     }
   }
+  return status;
 }
 
 /*Obtener el valor de un elemento de la web.
