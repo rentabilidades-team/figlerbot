@@ -1,7 +1,7 @@
 import * as libglobal from "../../core/libglobal.js";
 
 async function template() {
-    espera_carga();
+    libglobal.espera_carga();
 
     /*AutoLogin*/
     if (window.location.pathname == "/") {
