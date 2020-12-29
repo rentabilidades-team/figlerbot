@@ -13,6 +13,7 @@ async function template() {
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
         if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
+            libglobal.espera(10000);
             while (!$("div > div.minutes").is(':visible')) {
                 console.log("Esperando que responda la web");
             }
