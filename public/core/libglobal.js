@@ -15,6 +15,19 @@ function espera(ms){
   }
 }
 
+/*El siguiente ejemplo te permite ejecutar un script al cargar la página.
+  Ejemplo: espera_carga(funcion);
+  function funcion() {
+      //Aqui el script
+  }
+*/
+function espera_carga(funcion){
+  if(funcion==null){console.log('Error: espera_carga(funcion); El valor funcion es null');}
+  else{
+    window.onload=funcion;
+  }
+}
+
 /*El siguiente ejemplo te permite generar un numero aleatorio.
     Ejemplo: var num=numero_aleatorio(1,5);//Devuelve un numero aleatorio entre el numero 1 y el munero 5
 */
