@@ -5,3 +5,4 @@ async function iniciar_modulo() {
         libglobal.cerrar_modulo();
     }
 }
+iniciar_modulo();

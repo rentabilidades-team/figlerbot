@@ -20,3 +20,4 @@ async function iniciar_modulo() {
         },5000);
     }
 }
+iniciar_modulo();
