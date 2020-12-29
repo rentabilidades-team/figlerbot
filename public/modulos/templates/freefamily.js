@@ -12,8 +12,7 @@ async function template() {
 
     function wait() {
         if (!$("div > div.minutes").is(':visible') == true) {
-            console.log("Esperando que responda la web");
-            setTimeout(wait, 100);
+            setTimeout(wait, 1000);
         } else {
 
             if (libglobal.obtener_cookie("free-roll") < 8) {
