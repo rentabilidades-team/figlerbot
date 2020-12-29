@@ -30,16 +30,16 @@ async function template() {
         if ($("div > div.minutes").is(':visible') == true) {
             libglobal.cerrar_modulo();
         }
-
-
-        /*AutoFreeRolls*/
-        if (window.location.pathname.indexOf("/promotion") > -1) {
-            let i = libglobal.obtener_cookie("free-roll");
-            libglobal.crear_cookie("free-roll", ++i, 1);
-            libglobal.espera(2000);
-            window.location = '/free';
-        }
     }
+
+    /*AutoFreeRolls*/
+    if (window.location.pathname.indexOf("/promotion") > -1) {
+        let i = libglobal.obtener_cookie("free-roll");
+        libglobal.crear_cookie("free-roll", ++i, 1);
+        libglobal.espera(2000);
+        window.location = '/free';
+    }
+
 }
 
 export {
