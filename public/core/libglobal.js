@@ -19,8 +19,8 @@ function espera(ms){
     Ejemplo: espera_carga();
 */
 function espera_carga(){
-  while(true){
-    if (document.readyState === "complete") {break;}
+  while (true){
+    if(document.readyState != 'loading'){break;}
   }
 }
 
