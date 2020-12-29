@@ -2,9 +2,9 @@ import * as libglobal from "../core/libglobal.js";
 
 async function iniciar_modulo() {
     setInterval(function(){
-        if($('div[class^="_"]').length > 0){$('div[class^="_"]').click();}//Cierra la publicidad inicial
+        if($('div[class^="_"]').length > 0){libglobal.click('div[class^="_"]');}//Cierra la publicidad inicial
         if($('span#spins').html()!=0){
-            if($('input#playFancy').is(':enabled')==true && $('input#playFancy').is(':visible')==true && $('input#playFancy').val()=='' || $('input#playFancy').val()=='Play'){$('input#playFancy:enabled').click();}
+            if($('input#playFancy').is(':enabled')==true && $('input#playFancy').is(':visible')==true && $('input#playFancy').val()=='' || $('input#playFancy').val()=='Play'){libglobal.click('input#playFancy');}
             var numaleatorio;
             if($('div#100redblackwrapper').is(':visible')==true){
                 numaleatorio=libglobal.numero_aleatorio(1,2);
@@ -17,11 +17,11 @@ async function iniciar_modulo() {
                 $('div#100chestswrapper').hide();
             }
             if($('div#runModal > div > div > div.modal-header > a > span').is(':visible')==true){
-                $('div#runModal > div > div > div.modal-header > a > span').click();
+                libglobal.click('div#runModal > div > div > div.modal-header > a > span');
             }
         }else{
             if($('div#claimouter').is(':visible')==true){
-                $('div#claimouter > a#requestdaily')[0].click();
+                libglobal.click('div#claimouter > a#requestdaily');
             }else{
                 libglobal.cerrar_modulo();
             }
