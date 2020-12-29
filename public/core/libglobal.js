@@ -62,7 +62,6 @@ function click(identificador) {
   else{
     i=0;
     /* Comprobación nodo padre */
-    if(x[i].parentNode.disabled){x[i].disabled=true;}
     style = window.getComputedStyle(x[i].parentNode);
     visibility = style.getPropertyValue('visibility').toLowerCase();
     display = style.getPropertyValue('display').toLowerCase();
