@@ -11,7 +11,7 @@ async function template() {
     }
 
     function wait() {
-        if ($("div > div.minutes").is(':visible') == true) {
+        if (!$("div > div.minutes").is(':visible') == true) {
             console.log("Esperando que responda la web");
             setTimeout(wait, 100);
         } else {
