@@ -1,8 +1,7 @@
 import * as libglobal from "../../core/libglobal.js";
 
 async function template() {
-    libglobal.espera_carga();
-
+    
     /*AutoLogin*/
     if (window.location.pathname == "/") {
         if ($('input[type=email]:first').val() != '' && $('input[type=password]:first').val() != '') {
