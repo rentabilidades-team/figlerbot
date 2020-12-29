@@ -12,7 +12,7 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
+        libglobal.click("button.main-button-2.roll-button.bg-2")
             libglobal.espera(15000);
             if (libglobal.obtener_cookie("free-roll") < 8) {
                 if (!libglobal.obtener_cookie("free-roll")) {
@@ -29,7 +29,6 @@ async function template() {
                 }
             }
         }
-    }
 
     /*AutoFreeRolls*/
     if (window.location.pathname.indexOf("/promotion") > -1) {
