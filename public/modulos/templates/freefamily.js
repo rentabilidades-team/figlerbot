@@ -1,10 +1,10 @@
 import * as libglobal from "../../core/libglobal.js";
 
 async function template() {
-    libglobal.espera(2000);
-
+    
     /*AutoLogin*/
     if (window.location.pathname == "/") {
+        libglobal.espera(2000);
         if ($('input[type=email]:first').val() != '' && $('input[type=password]:first').val() != '') {
             libglobal.click("button.main-button.main-button-yellow.login.bg-3")
         }
