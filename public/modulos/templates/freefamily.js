@@ -24,20 +24,16 @@ async function template() {
                 let i = libglobal.obtener_cookie("free-roll");
                 var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"];
                 window.location = '/promotion/' + codes[i];
+            } else {
+                    libglobal.cerrar_modulo();
             }
         }
     }
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        //if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
-        //    wait()
-        //}
-        console.log(libglobal.click("button.main-button-2.roll-button.bg-2"));
-
-        if ($("div > div.minutes").is(':visible') == true) {
-            libglobal.cerrar_modulo();
-        }
+        libglobal.click("button.main-button-2.roll-button.bg-2");
+        wait();
     }
 
     /*AutoFreeRolls*/
@@ -47,7 +43,6 @@ async function template() {
         libglobal.espera(2000);
         window.location = '/free';
     }
-
 }
 
 export {
