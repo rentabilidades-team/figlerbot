@@ -56,16 +56,30 @@ function importar_libreria(url,callback,tipo) {
     Ejemplo: click('button#id-del-boton.class-del-boton.otra-class-del-boton');
 */
 function click(identificador) {
-  var tiempoespera=numero_aleatorio(1000,5000), x, i, style;
-  x = document.querySelectorAll(identificador).toLowerCase();
+  var tiempoespera=numero_aleatorio(1000,5000), x, i, style, visibility, display;
+  x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{
     i=0;
-    if(x[i].disabled==true){console.log('Click ignorado: El boton está deshabilidado.');}
+    /* Comprobación nodo padre */
+    if(x[i].parentNode.disabled){x[i].disabled=true;}
+    style = window.getComputedStyle(x[i].parentNode);
+    visibility = style.getPropertyValue('visibility').toLowerCase();
+    display = style.getPropertyValue('display').toLowerCase();
+    if(visibility=='hidden' || display=='none'){x[i].style.display='none';}
+    /* Comprobación nodo hijo */
+    if(x[i].disabled==true){
+      console.log('Click ignorado: El boton está deshabilidado.');
+    }
     style = window.getComputedStyle(x[i]);
+    visibility = style.getPropertyValue('visibility').toLowerCase();
+    display = style.getPropertyValue('display').toLowerCase();
+    if(visibility=='hidden' || display=='none'){
+      console.log('Click ignorado: El boton está escondido.');
+    }
+    /* Acción click */
     espera(tiempoespera);
-    if(style.getPropertyValue('visibility')=='hidden' || style.getPropertyValue('display')=='none'){console.log('Click ignorado: El boton está escondido.');}
-    if(x[i].disabled==false && style.getPropertyValue('visibility')!='hidden' && style.getPropertyValue('display')!='none'){
+    if(x[i].disabled==false && visibility=='hidden' && display!='none'){
       x[i].click();
       x[i].disabled = true;
     }
