@@ -15,10 +15,10 @@ async function template() {
         if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
             libglobal.espera(15000);
             if (libglobal.obtener_cookie("free-roll") < 8) {
-                console.log("Hay posibilidades de obtener " + libglobal.obtener_cookie("free-roll") + " tiros gratis");
                 if (!libglobal.obtener_cookie("free-roll")) {
                     libglobal.crear_cookie("free-roll", 0);
                 }
+                console.log("Hay posibilidades de obtener " + libglobal.obtener_cookie("free-roll") + " tiros gratis");
                 let i = libglobal.obtener_cookie("free-roll");
                 var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"]
                 window.location = '/promotion/' + codes[i]
