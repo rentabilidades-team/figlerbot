@@ -20,7 +20,7 @@ async function template() {
                 if (!libglobal.obtener_cookie("freeroll")) {
                     libglobal.crear_cookie("freeroll", 0);
                 }
-                console.log("Hay posibilidades de obtener " + libglobal.obtener_cookie("freeroll") + " tiros gratis");
+                console.log("Hay posibilidades de obtener tiros gratis.");
                 let i = libglobal.obtener_cookie("freeroll");
                 var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"];
                 window.location = '/promotion/' + codes[i];
