@@ -64,7 +64,7 @@
 
 (function() {
     'use strict';
-    //var botiniciado=gestionar_datos_del_navegador(1,'EstadoBot');
+    //var botiniciado=GM_getValue('EstadoBot');
     var botiniciado=true;
     if(botiniciado==true){
         import('https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
