@@ -78,7 +78,7 @@ function click(identificador) {
     }
     /* Acción click */
     espera(tiempoespera);
-    if(x[i].disabled==false && visibility=='hidden' && display!='none'){
+    if(x[i].disabled==false && visibility!='hidden' && display!='none'){
       x[i].click();
       x[i].disabled = true;
     }
