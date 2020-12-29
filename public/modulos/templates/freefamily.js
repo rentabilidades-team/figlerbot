@@ -12,7 +12,7 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        if (libglobal.click("button.main-button-2.roll-button.bg-2") {
+        if (libglobal.click("button.main-button-2.roll-button.bg-2")) {
                 libglobal.espera(10000);
             }
 
