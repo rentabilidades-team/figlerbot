@@ -31,7 +31,6 @@ async function template() {
             }
         }
     }
-}
 
 /*AutoFreeRolls*/
 if (window.location.pathname.indexOf("/promotion") > -1) {
