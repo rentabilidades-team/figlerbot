@@ -3,7 +3,7 @@ import * as libglobal from "../../core/libglobal.js";
 async function template() {
 
     function IniciarModulo() {
-        if (document.readyState == "complete") {
+        if (!document.readyState == "complete") {
             setTimeout(IniciarModulo, 1000);
         } else {
 
