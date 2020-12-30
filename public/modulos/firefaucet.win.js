@@ -1,13 +1,13 @@
-import * as libglobal from "../core/libglobal.js";
+import { cerrar_modulo } from "../core/libglobal.js";
 
 async function iniciar_modulo() {
     if(window.location.pathname=='/'){
         if(document.referrer.indexOf('/payout')>=0){
-            libglobal.cerrar_modulo();
+            cerrar_modulo();
         }
     }
     if(window.location.pathname.indexOf('/payout')>=0 || window.location.pathname.indexOf('/start')>=0){
-        libglobal.cerrar_modulo();
+        cerrar_modulo();
     }
     /*Código no terminado
     if(window.location.pathname.indexOf('/shortlinks')>=0){

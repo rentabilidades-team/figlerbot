@@ -1,4 +1,4 @@
-import * as libglobal from "../core/libglobal.js";
+import { cerrar_modulo } from "../core/libglobal.js";
 
 async function iniciar_modulo() {
     if(window.location.pathname=='/backoffice/freeroll'){
@@ -6,7 +6,7 @@ async function iniciar_modulo() {
             if($('button#start-roll').is(':visible')==true){
                 try{$('button#start-roll').click();}catch(e){}
             }else{
-                libglobal.cerrar_modulo(true);
+                cerrar_modulo(true);
             }
         },5000);
     }
