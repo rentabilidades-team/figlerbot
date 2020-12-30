@@ -1,4 +1,4 @@
-import { click, espera, obtener_cookie, crear_cookie, cerrar_modulo } from "../../core/libglobal.js";
+import {click, espera, obtener_cookie, crear_cookie, cerrar_modulo} from "../../core/libglobal.js";
 
 async function template() {
     
