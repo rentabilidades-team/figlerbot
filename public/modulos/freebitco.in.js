@@ -1,9 +1,9 @@
-import * as libglobal from "../core/libglobal.js";
+import { espera_carga, click, cerrar_modulo} from "../core/libglobal.js";
 
 async function iniciar_modulo() {
     setInterval(function(){
-        libglobal.click('input#free_play_form_button');
-        libglobal.cerrar_modulo();
+        click('input#free_play_form_button');
+        cerrar_modulo();
     },5000);
 }
-iniciar_modulo();
+espera_carga(iniciar_modulo);
