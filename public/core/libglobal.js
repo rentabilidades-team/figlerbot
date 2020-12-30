@@ -24,7 +24,7 @@ function espera(ms){
 function espera_carga(funcion){
   if(funcion==null){console.log('Error: espera_carga(funcion); El valor funcion es null');}
   else{
-    document.onload=funcion;
+    return window.onload=funcion;
   }
 }
 
