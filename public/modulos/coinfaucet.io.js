@@ -1,3 +1,3 @@
-import * as freefamily from "./templates/freefamily.js";
+import {template} from "./templates/freefamily.js";
 
-freefamily.template();
+template();
