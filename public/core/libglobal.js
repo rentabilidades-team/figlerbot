@@ -16,7 +16,7 @@ function espera(ms){
 }
 
 /*El siguiente ejemplo te permite ejecutar un script al cargar la página.
-  Ejemplo: espera_carga(funcion);
+  Ejemplo: espera_carga(funcion());
   function funcion() {
       //Aqui el script
   }
@@ -43,12 +43,12 @@ function numero_aleatorio(min,max) {
     importar_libreria('https://cdn.rawgit.org/universales.gitlab.io/rentabilidades-team/modulos/templates/freefamily.js');//Importo la plantilla de un módulo.
   Importante: NO SE RECOMIENDA LA IMPORTACIÓN DE LIBRERIAS EXTERNAS EN LOS MODULOS.
   El siguiente ejemplo te permite importar librerias en el módulo, y obtener información de ellas.
-    Ejemplo: importar_libreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',funcion); //Importo Jquery
+    Ejemplo: importar_libreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',funcion()); //Importo Jquery
     function funcion() {
       //Aqui puedo usar jquery
     }
   Por defecto se importa 'text/javascript', también es posible cambiar el tipo de script a importar...
-    Ejemplo: importar_libreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',funcion,'module'); //Importo Jquery como modulo
+    Ejemplo: importar_libreria('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js',funcion(),'module'); //Importo Jquery como modulo
     function funcion() {
       //Aqui puedo usar jquery
     }
@@ -167,7 +167,7 @@ function inyectar(identificador,texto,masivo) {
 }
 
 /*El siguiente ejemplo te permite añadir un evento la página.
-    Ejemplo: gregar_evento(window, 'load', function(){ funcion() });
+    Ejemplo: gregar_evento(window, 'load', function(){funcion()});
     function funcion() {
           //Aqui el script
     }
