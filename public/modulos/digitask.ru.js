@@ -1,4 +1,4 @@
-import { obtener_get, insertar, inyectar, dominio_base, cerrar_modulo} from "../core/libglobal.js";
+import { espera_carga, obtener_get, insertar, inyectar, dominio_base, cerrar_modulo} from "../core/libglobal.js";
 
 async function iniciar_modulo() {
     if(window.location.pathname.indexOf('/notimer_fp')>=0){
@@ -17,4 +17,4 @@ async function iniciar_modulo() {
         }
     }
 }
-iniciar_modulo();
+espera_carga(iniciar_modulo);
