@@ -16,7 +16,8 @@ function control() {
     <tr>\
     <td style="width: 100%;" colspan="3"><input id="btnstartstopbot" style="width: 100%;" type="button" value="'+btnstartstopbot+'"></td>\
     </tr>\
-    </tbody></table>';
-
+    </tbody>\
+    </table>';
 }
+
 export {control};
