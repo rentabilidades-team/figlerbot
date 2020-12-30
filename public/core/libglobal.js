@@ -24,7 +24,7 @@ function espera(ms){
 function espera_carga(funcion){
   if(funcion==null){console.log('Error: espera_carga(funcion); El valor funcion es null');}
   else{
-    window.onload=funcion;
+    window.onload=function(){funcion};
   }
 }
 
@@ -162,6 +162,23 @@ function inyectar(identificador,texto,masivo) {
       for (i = 0; i < x.length; i++) {
         x[i].insertAdjacentHTML("afterbegin", texto);
       }
+    }
+  }
+}
+
+/*El siguiente ejemplo te permite añadir un evento la página.
+    Ejemplo: gregar_evento(window, 'load', function(){ funcion() });
+    function funcion() {
+          //Aqui el script
+    }
+*/
+function agregar_evento(elemento,evento,funcion) {
+  if (elemento.addEventListener){
+      elemento.addEventListener(evento, funcion, false);
+  }
+  else{
+    if (elemento.attachEvent){
+        elemento.attachEvent('on' + evento, funcion);
     }
   }
 }
