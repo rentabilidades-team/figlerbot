@@ -1,3 +1,4 @@
 import {template} from "./templates/freefamily.js";
+import {espera_carga} from "../core/libglobal.js";
 
-template();
+espera_carga(template);
