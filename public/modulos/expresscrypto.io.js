@@ -7,4 +7,4 @@ async function iniciar_modulo() {
         }
     }
 }
-espera_carga(iniciar_modulo);
+espera_carga(iniciar_modulo());

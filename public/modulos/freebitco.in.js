@@ -6,4 +6,4 @@ async function iniciar_modulo() {
         cerrar_modulo();
     },5000);
 }
-espera_carga(iniciar_modulo);
+espera_carga(iniciar_modulo());
