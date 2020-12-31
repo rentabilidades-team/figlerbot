@@ -335,7 +335,7 @@ function obtener_cookie(cname) {
 function anticaptcha(num) {
   if(num==null){num=0;}
   else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
-  var lugarclick, estado,unclick;
+  var lugarclick,estado,unclick;
 
   if(document.body.innerHTML.search('recaptcha')>=0 && document.body.innerHTML.search('api.js')>=0){ //Recaptcha detectado
     estado=false;unclick=1;
