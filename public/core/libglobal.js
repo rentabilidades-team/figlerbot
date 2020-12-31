@@ -353,7 +353,7 @@ function anticaptcha(num) {
         while (estado==false){
           if(x[num].value==''){
               if(unclick==1){
-                click(lugarclick[num]);//Realizar click humano
+                try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
               }
             estado=false;//Captcha no resuelto
             unclick++;
@@ -378,7 +378,7 @@ function anticaptcha(num) {
       while (estado==false){
         if(x.length==0){
           if(unclick==1){
-                click(lugarclick[num]);//Realizar click humano
+                try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
           }
           estado=false;//Captcha no resuelto
           unclick++;
