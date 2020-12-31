@@ -328,11 +328,11 @@ function obtener_cookie(cname) {
 }
 
 /*El siguiente ejemplo te permite intentar resolver los captcha. (Requiere que el usuario instale algunos complementos en su navegador, Requiere importar click)
-    Ejemplo: anticaptcha(); //Intenta resolver el primer captcha detectado
+    Ejemplo: anti_captcha(); //Intenta resolver el primer captcha detectado
   Y si hay mas de un captcha en la misma url...
-    Ejemplo: anticaptcha(2); //Intenta resolver el segundo captcha detectado
+    Ejemplo: anti_captcha(2); //Intenta resolver el segundo captcha detectado
 */
-function anticaptcha(num) {
+function anti_captcha(num) {
   if(num==null){num=0;}
   else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
   var lugarclick,estado,unclick;

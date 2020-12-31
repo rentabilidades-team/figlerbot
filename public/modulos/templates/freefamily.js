@@ -1,4 +1,4 @@
-import {click, espera, obtener_cookie, crear_cookie, cerrar_modulo} from "../../core/libglobal.js";
+import {click, espera, obtener_cookie, crear_cookie, cerrar_modulo,anti_captcha} from "../../core/libglobal.js";
 
 async function template() {
     
@@ -29,7 +29,7 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        anticaptcha();
+        anti_captcha();
         click("button.main-button-2.roll-button.bg-2");
         esperar_reloj();
     }
