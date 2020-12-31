@@ -1,4 +1,4 @@
-import {espera_carga, obtener_get, dominio_base, obtener} from "../core/libglobal.js";
+import {espera_carga, obtener_get, dominio_base, obtener} from "../core/resources/libglobal.js";
 
 async function iniciar_modulo() {
     if(obtener_get('importar')==1){

@@ -1,4 +1,4 @@
-import {espera_carga, cerrar_modulo} from "../core/libglobal.js";
+import {espera_carga, cerrar_modulo} from "../core/resources/libglobal.js";
 
 async function iniciar_modulo() {
     if(window.location.pathname=='/backoffice/freeroll'){

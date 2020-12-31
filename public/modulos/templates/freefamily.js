@@ -1,4 +1,4 @@
-import {click, espera, obtener_cookie, crear_cookie, cerrar_modulo, anti_captcha} from "../../core/libglobal.js";
+import {click, espera, obtener_cookie, crear_cookie, cerrar_modulo, anti_captcha} from "../../core/resources/libglobal.js";
 
 async function template() {
     
