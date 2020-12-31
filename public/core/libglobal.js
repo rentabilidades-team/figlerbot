@@ -391,4 +391,4 @@ function anti_captcha(num) {
   }
 }
 
-export {dominio_base,espera,espera_carga,numero_aleatorio,importar_libreria,click,obtener,insertar,inyectar,ocultar,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,guardar_datos_modulo,crear_cookie,obtener_cookie,anticaptcha};
+export {dominio_base,espera,espera_carga,numero_aleatorio,importar_libreria,click,obtener,insertar,inyectar,ocultar,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,guardar_datos_modulo,crear_cookie,obtener_cookie,anti_captcha};
