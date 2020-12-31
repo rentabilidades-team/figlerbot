@@ -333,11 +333,12 @@ function obtener_cookie(cname) {
     Ejemplo: anticaptcha(2); //Intenta resolver el segundo captcha detectado
 */
 function anticaptcha(num) {
-  if(num==null){num=0;}else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
-  var lugarclick, estado=false;
+  if(num==null){num=0;}
+  else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
+  var lugarclick, estado,unclick;
 
   if(document.body.innerHTML.search('recaptcha')>=0 && document.body.innerHTML.search('api.js')>=0){ //Recaptcha detectado
-
+    estado=false;unclick=1;
     var x = document.querySelectorAll('.g-recaptcha');
     if(x.length>=0){
       console.log('Recaptcha no detectado.');
@@ -348,11 +349,14 @@ function anticaptcha(num) {
         console.log('Error: No se ha encontrado la respuesta de recaptcha.');
       }
       else{
+        lugarclick=document.querySelectorAll('div.recaptcha-checkbox-border');
         while (estado==false){
           if(x[num].value==''){
-            lugarclick=document.querySelectorAll('div.recaptcha-checkbox-border');
-            click(lugarclick[num]);//Realizar click humano
+              if(unclick==1){
+                click(lugarclick[num]);//Realizar click humano
+              }
             estado=false;//Captcha no resuelto
+            unclick++;
           }
           else{
             estado=true;//Captcha resuelto
@@ -364,18 +368,21 @@ function anticaptcha(num) {
   }
 
   if(document.body.innerHTML.search('hcaptcha.com')>=0 && document.body.innerHTML.search('api.js')>=0){ //Hcaptcha detectado
-
+    estado=false;unclick=1;
     var x = document.querySelectorAll('div#checkbox.checkbox');
     if(x.length>=0){
       console.log('Hcaptcha no detectado.');
     }
     else{
       var x = document.querySelectorAll('div#checkbox.checkbox.checked');
+      lugarclick=document.querySelectorAll('div#checkbox.checkbox');
       while (estado==false){
         if(x.length==0){
-          lugarclick=document.querySelectorAll('div#checkbox.checkbox');
-          click(lugarclick[num]);//Realizar click humano
+          if(unclick==1){
+                click(lugarclick[num]);//Realizar click humano
+          }
           estado=false;//Captcha no resuelto
+          unclick++;
         }
         else{
           estado=true;//Captcha resuelto
