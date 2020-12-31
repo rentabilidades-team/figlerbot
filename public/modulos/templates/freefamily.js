@@ -5,7 +5,7 @@ async function template() {
     /*AutoLogin*/
     if (window.location.pathname == "/") {
         if ($('input[type=email]:first').val() != '' && $('input[type=password]:first').val() != '') {
-            click("button.main-button.main-button-yellow.login.bg-3")
+            click("button.main-button.main-button-yellow.login.bg-3");
         }
     }
 
@@ -29,6 +29,7 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
+        anticaptcha();
         click("button.main-button-2.roll-button.bg-2");
         esperar_reloj();
     }
