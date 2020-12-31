@@ -328,19 +328,33 @@ function obtener_cookie(cname) {
   }
 }
 
-/*Anticaptcha*/
-function anticaptcha() {
-  /*  No funcional, transformar a puro js.
-      if($("div.g-recaptcha").length>=0){//Recaptcha v2 detectado
-          $('div.recaptcha-checkbox-checkmark').click();
-          if($("button#solver-button").is(':visible')==true){//Captcha requerido
-              try{$('button#solver-button').click();}catch(e){}//Hack
-          }
-      }
-      if($("div.h-captcha").length>=0){//Hcaptcha detectado
-          $('div#checkbox').click();
-      }
-  */
+/*El siguiente ejemplo te permite evitar los captcha. (Requiere que el usuario instale algunos complementos en su navegador)
+    Ejemplo: anticaptcha(); //Intenta resolver el primer captcha detectado
+  Y si hay mas de un captcha en la misma url...
+    Ejemplo: anticaptcha(2); //Intenta resolver el segundo captcha detectado
+*/
+function anticaptcha(num) {
+  if(num==null){num=0;}else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
+
+  if(document.body.innerHTML.search('recaptcha')>=0 && document.body.innerHTML.search('api.js')>=0){ //Recaptcha detectado
+    var x = document.querySelectorAll('.g-recaptcha');
+    if(x.length>=0){
+      console.log('Error: Google recaptcha no está instalado correctamente en la web.');
+    }
+    else{
+      //x[num].click();
+    }
+  }
+
+  if(document.body.innerHTML.search('hcaptcha.com')>=0 && document.body.innerHTML.search('api.js')>=0){ //Hcaptcha detectado
+    var x = document.querySelectorAll('div#checkbox.checkbox');
+    if(x.length>=0){
+      console.log('Error: Hcaptcha no ha sido detectado.');
+    }
+    else{
+      click(x[num]);//Click humano
+    }
+  }
 }
 
 export {dominio_base,espera,espera_carga,numero_aleatorio,importar_libreria,click,obtener,insertar,inyectar,ocultar,cerrar_modulo,obtener_get,gestionar_datos_del_navegador,guardar_datos_modulo,crear_cookie,obtener_cookie,anticaptcha};
