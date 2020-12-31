@@ -331,6 +331,7 @@ function obtener_cookie(cname) {
     Ejemplo: anti_captcha(); //Intenta resolver el primer captcha detectado
   Y si hay mas de un captcha en la misma url...
     Ejemplo: anti_captcha(2); //Intenta resolver el segundo captcha detectado
+  Actualmente funciona con "hcaptcha", parcialmente tambien funciona con "recaptcha".
 */
 function anti_captcha(num) {
   if(num==null){num=0;}
