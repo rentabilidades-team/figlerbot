@@ -16,4 +16,4 @@ function modulo(nombremodulo,segundosdeespera) {
   </tbody></table>');
 }
 
-export {estado};
+export {modulo};
