@@ -1,6 +1,7 @@
 function anti_hcaptcha(num) {
   var lugarclick,estado,unclick;
-
+  if(num==null){num=0;}
+  else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
   estado=false;unclick=1;
   var x = document.querySelectorAll('div#checkbox.checkbox');
   if(x.length>=0){
