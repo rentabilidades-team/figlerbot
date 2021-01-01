@@ -69,8 +69,34 @@ function importar_libreria(url,callback,tipo) {
     Ejemplo: click('button#id-del-boton.class-del-boton.otra-class-del-boton'); //Devuelve true si hace click, false si no lo realiza.
 */
 function click(identificador) {
-  import {click_humano} from "./human-simulator/click.js";
-  click_humano(identificador);
+  var tiempoespera=numero_aleatorio(1000,5000), x, i, style, visibility, display;
+  x = document.querySelectorAll(identificador);
+  if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
+  else{
+    i=0;
+    /* Comprobación nodo padre */
+    style = window.getComputedStyle(x[i].parentNode);
+    visibility = style.getPropertyValue('visibility').toLowerCase();
+    display = style.getPropertyValue('display').toLowerCase();
+    if(visibility=='hidden' || display=='none'){x[i].style.display='none';}
+    /* Comprobación nodo hijo */
+    if(x[i].disabled==true){
+      console.log('Click ignorado: El boton está deshabilidado.');
+    }
+    style = window.getComputedStyle(x[i]);
+    visibility = style.getPropertyValue('visibility').toLowerCase();
+    display = style.getPropertyValue('display').toLowerCase();
+    if(visibility=='hidden' || display=='none'){
+      console.log('Click ignorado: El boton está escondido.');
+    }
+    /* Acción click */
+    espera(tiempoespera);
+    if(x[i].disabled==false && visibility!='hidden' && display!='none'){
+      x[i].click();
+      x[i].disabled = true;
+      return true;
+    }else{return false;}
+  }
 }
 
 /*Obtener el valor de un elemento de la web.
@@ -308,14 +334,59 @@ function obtener_cookie(cname) {
   Actualmente funciona con "hcaptcha", parcialmente tambien funciona con "recaptcha".
 */
 function anti_captcha(num) {
+  var lugarclick,estado,unclick;
+  if(num==null){num=0;}
+  else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
   if(document.body.innerHTML.search('recaptcha')>=0 && document.body.innerHTML.search('api.js')>=0){ //Recaptcha detectado
-    import {anti_recaptcha} from "./anti-captcha/recaptcha.js";
-    anti_recaptcha(num);
+    estado=false;unclick=1;
+    var x = document.querySelectorAll('.g-recaptcha');
+    if(x.length>=0){
+        console.log('Recaptcha no detectado.');
+    }
+    else{
+        var x = document.querySelectorAll('textarea#g-recaptcha-response.g-recaptcha-response');
+        if(x.length==0){
+        console.log('Error: No se ha encontrado la respuesta de recaptcha.');
+        }
+        else{
+        lugarclick=document.querySelectorAll('div.recaptcha-checkbox-border');
+          while (estado==false){
+            if(x[num].value==''){
+              if(unclick==1){
+                try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
+              }
+              estado=false;//Captcha no resuelto
+              unclick++;
+            }
+            else{
+              estado=true;//Captcha resuelto
+            }
+          }
+        }
+    }
   }
-
   if(document.body.innerHTML.search('hcaptcha.com')>=0 && document.body.innerHTML.search('api.js')>=0){ //Hcaptcha detectado
-    import {anti_hcaptcha} from "./anti-captcha/hcaptcha.js";
-    anti_hcaptcha(num);
+    estado=false;unclick=1;
+    var x = document.querySelectorAll('div#checkbox.checkbox');
+    if(x.length>=0){
+      console.log('Hcaptcha no detectado.');
+    }
+    else{
+      var x = document.querySelectorAll('div#checkbox.checkbox.checked');
+      lugarclick=document.querySelectorAll('div#checkbox.checkbox');
+      while (estado==false){
+        if(x.length==0){
+          if(unclick==1){
+                try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
+          }
+          estado=false;//Captcha no resuelto
+          unclick++;
+        }
+        else{
+          estado=true;//Captcha resuelto
+        }
+      }
+    }
   }
 }
 
