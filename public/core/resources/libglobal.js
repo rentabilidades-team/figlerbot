@@ -336,7 +336,8 @@ function obtener_cookie(cname) {
 function anti_captcha(num) {
   var lugarclick,estado,unclick;
   if(num==null){num=0;}
-  else{try{num=parseInt(num);}catch(e){console.log(e);}num=num-1;}
+  else{try{num=parseInt(num);}catch(e){console.log(e);}}
+  if(num>0){num=num-1;}
   if(document.body.innerHTML.search('recaptcha')>=0 && document.body.innerHTML.search('api.js')>=0){ //Recaptcha detectado
     estado=false;unclick=1;
     var x = document.querySelectorAll('.g-recaptcha');
