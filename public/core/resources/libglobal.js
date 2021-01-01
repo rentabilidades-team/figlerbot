@@ -352,6 +352,7 @@ function anti_captcha(num) {
         else{
         lugarclick=document.querySelectorAll('div.recaptcha-checkbox-border');
           while (estado==false){
+            console.log('Error: '+num);
             if(x[num].value==''){
               if(unclick==1){
                 try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
@@ -376,6 +377,7 @@ function anti_captcha(num) {
       var x = document.querySelectorAll('div#checkbox.checkbox.checked');
       lugarclick=document.querySelectorAll('div#checkbox.checkbox');
       while (estado==false){
+        console.log('Error: '+num);
         if(x.length==0){
           if(unclick==1){
                 try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
