@@ -3,7 +3,7 @@ var dominiobase='rentabilidadesweb.runkodapps.com';
 function dominio_base() {return dominiobase;}//Aporta la base del proyecto
 
 /*El siguiente ejemplo te permite esperar un tiempo para realizar una acción.
-  Ejemplo: espera(1000);//Espera de 1 segundo
+  Ejemplo:await espera(1000);//Espera de 1 segundo
 */
 function espera(ms){
   if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
