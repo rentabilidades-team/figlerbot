@@ -11,7 +11,8 @@ async function template() {
 
     function esperar_reloj() {
         if (!$("div > div.minutes").is(':visible') == true) {
-            setTimeout(esperar_reloj, 1000);
+            //setTimeout(esperar_reloj, 1000);
+            await espera(1000);
         } else {
             if (obtener_cookie("freeroll") < 8) {
                 if (!obtener_cookie("freeroll")) {
