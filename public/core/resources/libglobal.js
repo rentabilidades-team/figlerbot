@@ -338,7 +338,7 @@ function anti_captcha(num) {
   if(num==null){num=0;}
   else{try{num=parseInt(num);}catch(e){console.log(e);}}
   if(num>0){num=num-1;}
-  if(document.body.innerHTML.search('recaptcha')>=0 && document.body.innerHTML.search('api.js')>=0){ //Recaptcha detectado
+  if(document.body.parentElement.innerHTML.search('recaptcha')>=0 && document.body.parentElement.innerHTML.search('api.js')>=0){ //Recaptcha detectado
     estado=false;unclick=1;
     var x = document.querySelectorAll('.g-recaptcha');
     if(x.length>=0){
@@ -367,7 +367,7 @@ function anti_captcha(num) {
         }
     }
   }
-  if(document.body.innerHTML.search('hcaptcha.com')>=0 && document.body.innerHTML.search('api.js')>=0){ //Hcaptcha detectado
+  if(document.body.parentElement.innerHTML.search('hcaptcha.com')>=0 && document.body.parentElement.innerHTML.search('api.js')>=0){ //Hcaptcha detectado
     estado=false;unclick=1;
     var x = document.querySelectorAll('div#checkbox.checkbox');
     if(x.length>=0){
