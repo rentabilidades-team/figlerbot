@@ -9,7 +9,7 @@ function espera(ms){
   if(ms==null){console.log('Error: espera(ms); El valor ms es null');}
   else{
     try{ms=parseInt(ms);}catch(e){console.log(e);}
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new tiempo(resolve => setTimeout(resolve, ms));
   }
 }
 
