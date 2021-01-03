@@ -69,7 +69,7 @@ function importar_libreria(url,callback,tipo) {
     Ejemplo: click('button#id-del-boton.class-del-boton.otra-class-del-boton'); //Devuelve true si hace click, false si no lo realiza.
 */
 function click(identificador) {
-  import {click_humano} from './human-simulator/click.js';
+  import * from './human-simulator/click.js';
   click_humano(identificador);
 }
 
