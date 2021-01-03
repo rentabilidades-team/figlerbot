@@ -1,4 +1,4 @@
-var dominiobase='rentabilidadesweb.runkodapps.com';
+const dominiobase='rentabilidadesweb.runkodapps.com';
 
 function dominio_base() {return dominiobase;}//Aporta la base del proyecto
 
