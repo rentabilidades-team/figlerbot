@@ -308,62 +308,14 @@ function obtener_cookie(cname) {
   Actualmente funciona con "hcaptcha", parcialmente tambien funciona con "recaptcha".
 */
 function anti_captcha(num) {
-  var lugarclick,estado,unclick;
-  if(num==null){num=0;}
-  else{try{num=parseInt(num);}catch(e){console.log(e);}}
-  if(num>0){num=num-1;}
+  var captcha;
   if(document.body.parentElement.innerHTML.search('recaptcha')>=0 && document.body.parentElement.innerHTML.search('api.js')>=0){ //Recaptcha detectado
-    estado=false;unclick=1;
-    var x = document.querySelectorAll('.g-recaptcha');
-    if(x.length>=0){
-        console.log('Recaptcha no detectado.');
-    }
-    else{
-        var x = document.querySelectorAll('textarea#g-recaptcha-response.g-recaptcha-response');
-        if(x.length==0){
-        console.log('Error: No se ha encontrado la respuesta de recaptcha.');
-        }
-        else{
-        lugarclick=document.querySelectorAll('div.recaptcha-checkbox-border');
-          while (estado==false){
-            console.log('Error: '+num);
-            if(x[num].value==''){
-              if(unclick==1){
-                try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
-              }
-              estado=false;//Captcha no resuelto
-              unclick++;
-            }
-            else{
-              estado=true;//Captcha resuelto
-            }
-          }
-        }
-    }
+    captcha = require("./anti-captcha/recaptcha.js");
+    captcha.anti_recaptcha(num);
   }
   if(document.body.parentElement.innerHTML.search('hcaptcha.com')>=0 && document.body.parentElement.innerHTML.search('api.js')>=0){ //Hcaptcha detectado
-    estado=false;unclick=1;
-    var x = document.querySelectorAll('div#checkbox.checkbox');
-    if(x.length>=0){
-      console.log('Hcaptcha no detectado.');
-    }
-    else{
-      var x = document.querySelectorAll('div#checkbox.checkbox.checked');
-      lugarclick=document.querySelectorAll('div#checkbox.checkbox');
-      while (estado==false){
-        console.log('Error: '+num);
-        if(x.length==0){
-          if(unclick==1){
-                try{click(lugarclick[num]);}catch(e){console.log(e);}//Realizar click humano
-          }
-          estado=false;//Captcha no resuelto
-          unclick++;
-        }
-        else{
-          estado=true;//Captcha resuelto
-        }
-      }
-    }
+    captcha = require("./anti-captcha/hcaptcha.js");
+    captcha.anti_hcaptcha(num);
   }
 }
 

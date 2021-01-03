@@ -30,4 +30,4 @@ function anti_recaptcha(num) {
     }
 }
 
-export {anti_recaptcha};
+//export {anti_recaptcha};

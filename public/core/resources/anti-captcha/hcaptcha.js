@@ -25,4 +25,4 @@ function anti_hcaptcha(num) {
   }
 }
 
-export {anti_hcaptcha};
+//export {anti_hcaptcha};
