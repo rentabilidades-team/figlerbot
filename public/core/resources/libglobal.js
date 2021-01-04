@@ -306,14 +306,14 @@ function get_cookie(cname) {
 function anti_captcha(num) {
     var captcha;
     if (document.body.parentElement.innerHTML.search('recaptcha') >= 0 && document.body.parentElement.innerHTML.search('api.js') >= 0) { //Recaptcha detectado
-        //captcha = require("./anti-captcha/recaptcha.js");
-        import { anti_recaptcha } from "./anti-captcha/recaptcha.js";
-        anti_recaptcha(num);
+        captcha = require("./anti-captcha/recaptcha.js");
+        //import { anti_recaptcha } from "./anti-captcha/recaptcha.js";
+        captcha.anti_recaptcha(num);
     }
     if (document.body.parentElement.innerHTML.search('hcaptcha.com') >= 0 && document.body.parentElement.innerHTML.search('api.js') >= 0) { //Hcaptcha detectado
-        //captcha = require("./anti-captcha/hcaptcha.js");
-        import { anti_hcaptcha } from "./anti-captcha/hcaptcha.js";
-        anti_hcaptcha(num);
+        captcha = require("./anti-captcha/hcaptcha.js");
+        //import { anti_hcaptcha } from "./anti-captcha/hcaptcha.js";
+        captcha.anti_hcaptcha(num);
     }
 }
 
