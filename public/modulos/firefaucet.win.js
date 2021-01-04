@@ -1,13 +1,13 @@
-import {espera_carga, cerrar_modulo} from "../core/resources/libglobal.js";
+import { load_wait, close_module } from "../core/resources/libglobal.js";
 
 async function iniciar_modulo() {
-    if(window.location.pathname=='/'){
-        if(document.referrer.indexOf('/payout')>=0){
-            cerrar_modulo();
+    if (window.location.pathname == '/') {
+        if (document.referrer.indexOf('/payout') >= 0) {
+            close_module();
         }
     }
-    if(window.location.pathname.indexOf('/payout')>=0 || window.location.pathname.indexOf('/start')>=0){
-        cerrar_modulo();
+    if (window.location.pathname.indexOf('/payout') >= 0 || window.location.pathname.indexOf('/start') >= 0) {
+        close_module();
     }
     /*Código no terminado
     if(window.location.pathname.indexOf('/shortlinks')>=0){
@@ -25,4 +25,5 @@ async function iniciar_modulo() {
     }
     */
 }
-espera_carga(iniciar_modulo());
+
+load_wait(iniciar_modulo());

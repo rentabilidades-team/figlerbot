@@ -1,9 +1,10 @@
-import {espera_carga, click, cerrar_modulo} from "../core/resources/libglobal.js";
+import { load_wait, click, close_module } from "../core/resources/libglobal.js";
 
 async function iniciar_modulo() {
-    setInterval(function(){
+    setInterval(function() {
         click('input#free_play_form_button');
-        cerrar_modulo();
-    },5000);
+        close_module();
+    }, 5000);
 }
-espera_carga(iniciar_modulo());
+
+load_wait(iniciar_modulo());

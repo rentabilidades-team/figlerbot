@@ -1,10 +1,11 @@
-import {espera_carga, obtener_get, dominio_base, obtener} from "../core/resources/libglobal.js";
+import { load_wait, form_get, base_domain, obtain } from "../core/resources/libglobal.js";
 
 async function iniciar_modulo() {
-    if(obtener_get('importar')==1){
-        if(window.location.pathname.indexOf('/dashboard')>=0){
-            location.replace('//'+dominio_base()+'/expresscrypto?ecid='+obtener('u#copyIdTarget.glow','val'));
+    if (form_get('importar') == 1) {
+        if (window.location.pathname.indexOf('/dashboard') >= 0) {
+            location.replace('//' + base_domain() + '/expresscrypto?ecid=' + obtain('u#copyIdTarget.glow', 'val'));
         }
     }
 }
-espera_carga(iniciar_modulo());
+
+load_wait(iniciar_modulo());

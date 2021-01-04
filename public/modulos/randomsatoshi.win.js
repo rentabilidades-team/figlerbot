@@ -1,8 +1,9 @@
-import {espera_carga, cerrar_modulo} from "../core/resources/libglobal.js";
+import { load_wait, close_module } from "../core/resources/libglobal.js";
 
 async function iniciar_modulo() {
-    if(window.location.pathname.indexOf('/autofaucet/claims.php')>=0){
-        cerrar_modulo();
+    if (window.location.pathname.indexOf('/autofaucet/claims.php') >= 0) {
+        close_module();
     }
 }
-espera_carga(iniciar_modulo());
+
+load_wait(iniciar_modulo());

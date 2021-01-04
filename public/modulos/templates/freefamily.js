@@ -1,7 +1,7 @@
-import {click, espera, obtener_cookie, crear_cookie, cerrar_modulo, anti_captcha} from "../../core/resources/libglobal.js";
+import { click, wait, get_cookie, add_cookie, close_module, anti_captcha } from "../../core/resources/libglobal.js";
 
 async function template() {
-    
+
     /*AutoLogin*/
     if (window.location.pathname == "/") {
         if ($('input[type=email]:first').val() != '' && $('input[type=password]:first').val() != '') {
@@ -12,18 +12,18 @@ async function template() {
     function esperar_reloj() {
         if (!$("div > div.minutes").is(':visible') == true) {
             setTimeout(esperar_reloj, 1000);
-            //await espera(1000);
+            //await wait(1000);
         } else {
-            if (obtener_cookie("freeroll") < 8) {
-                if (!obtener_cookie("freeroll")) {
-                    crear_cookie("freeroll", 0);
+            if (get_cookie("freeroll") < 8) {
+                if (!get_cookie("freeroll")) {
+                    add_cookie("freeroll", 0);
                 }
                 console.log("Hay posibilidades de obtener tiros gratis.");
-                let i = obtener_cookie("freeroll");
+                let i = get_cookie("freeroll");
                 var codes = ["lytovoap04", "ykxlvmg9ja", "vmuph8j0c6", "aeyt2qb7xw", "d8fmqxjlma", "x4diftkhjz", "6qxmhamnd3", "pc2w277bm2"];
                 window.location = '/promotion/' + codes[i];
             } else {
-                cerrar_modulo();
+                close_module();
             }
         }
     }
@@ -37,9 +37,9 @@ async function template() {
 
     /*AutoFreeRolls*/
     if (window.location.pathname.indexOf("/promotion") > -1) {
-        let i = obtener_cookie("freeroll");
-        crear_cookie("freeroll", ++i, 1);
-        espera(2000);
+        let i = get_cookie("freeroll");
+        add_cookie("freeroll", ++i, 1);
+        wait(2000);
         window.location = '/free';
     }
 }
