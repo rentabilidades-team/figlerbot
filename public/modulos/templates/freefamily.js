@@ -30,7 +30,7 @@ async function template() {
 
     /*AutoClaim*/
     if (window.location.pathname.indexOf("/free") >= 0) {
-        anti_captcha();
+        //anti_captcha();
         click("button.main-button-2.roll-button.bg-2");
         esperar_reloj();
     }
@@ -39,7 +39,7 @@ async function template() {
     if (window.location.pathname.indexOf("/promotion") > -1) {
         let i = get_cookie("freeroll");
         add_cookie("freeroll", ++i, 1);
-        wait(2000);
+        await wait(2000);
         window.location = '/free';
     }
 }
