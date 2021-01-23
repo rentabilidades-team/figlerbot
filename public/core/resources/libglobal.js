@@ -1,7 +1,7 @@
 const domain = 'rentabilidadesweb.runkodapps.com';
 
 /* Number random*/
-import {random} from "./random/number.js";
+import {random_numbers} from "./random/number.js";
 
 /* Form Get*/
 import {f_get} from "./form/get.js";
@@ -56,7 +56,7 @@ function load_wait(funcion) {
     Example: var num=random_number(1,5); // return a random number between number 1 and 5
 */
 function random_number(min, max) {
-    return random(min, max);
+    return random_numbers(min, max);
 }
 
 /*The following example allows you to import libraries into the module. 
