@@ -1,12 +1,30 @@
 const domain = 'rentabilidadesweb.runkodapps.com';
 
+/* Number random*/
 import {random} from "./random/number.js";
+
+/* Form Get*/
+import {f_get} from "./form/get.js";
+
+/* Human-simulator */
 import {click_human} from "./human-simulator/click.js";
+
+/* Captcha */
 import {anti_hcaptcha} from "./anti-captcha/hcaptcha.js";
 import {anti_recaptcha} from "./anti-captcha/recaptcha.js";
+
+/* Cookies */
+import {add_cookies} from "./cookies/add_cookies.js";
+import {get_cookies} from "./cookies/get_cookies.js";
+
+/* Utilities */
 import {obtain_val} from "./utilities/obtain_val.js";
 import {insert_val} from "./utilities/insert_val.js";
 import {import_library_func} from "./utilities/import_library_func.js";
+import {hide_html} from "./utilities/hide_html.js";
+import {insert_html} from "./utilities/inject_html.js";
+
+
 
 function base_domain() { return domain; } // Provides the basis for the project
 
@@ -115,18 +133,7 @@ function add_event(elemento, evento, funcion) {
     Example: hide('div#id-del-div.class-del-div.otra-class-del-div',false);
 */
 function hide(identificador, masivo) {
-    var x, i;
-    if (masivo == null) { masivo = true; }
-    x = document.querySelectorAll(identificador);
-    if (x.length == 0) { console.log('Error: hide(identificador); No se pudo encontrar el elemento ' + identificador + ' .'); } else {
-        if (masivo == false) {
-            x[0].style.display = "none";
-        } else {
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-        }
-    }
+    hide_html(identificador, masivo);
 }
 
 /*The following example allows you to close your module.
@@ -149,17 +156,7 @@ function close_module(valor) {
     Example: var data = form_get('hello'); // You receive the 1 of the url
 */
 function form_get(nombre) {
-    if (nombre == null) { console.log('Error: form_get(nombre); El valor nombre es null.'); } else {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (pair[0] == nombre) {
-                return decodeURIComponent(pair[1]);
-            }
-        }
-        return '';
-    }
+    return f_get(nombre);
 }
 
 /*The following example allows you to save a data in the browser.
@@ -216,36 +213,14 @@ function save_data_module(espera, saldo, ganado) {
 */
 
 function add_cookie(cname, cvalue, exdays) {
-    if (cname == null) { console.log('Error: add_cookie(cname,cvalue); El valor cname es null.'); } else {
-        if (cvalue == null) { exdays = 0; }
-        if (exdays == null) { exdays = 1; }
-        try { exdays = parseInt(exdays); } catch (e) { console.log(e); }
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
+    add_cookies(cname, cvalue, exdays);
 }
 
 /*The following example allows you to receive the value of a cookie.
     Example: var value=get_cookie('cookie1');
 */
 function get_cookie(cname) {
-    if (cname == null) { console.log('Error: get_cookie(cname); El valor cname es null.'); } else {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return false;
-    }
+    get_cookies(cname);
 }
 
 /*The following example allows you to try to solve the captcha. (Requires the user to install some plug-ins in their browser, Requires import click)
