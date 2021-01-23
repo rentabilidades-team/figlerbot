@@ -1,9 +1,11 @@
 const domain = 'rentabilidadesweb.runkodapps.com';
 
-import {click_humano} from "./human-simulator/click.js";
+import {f_random_number} from "./random/number.js";
+import {click_human} from "./human-simulator/click.js";
 import {anti_hcaptcha} from "./anti-captcha/hcaptcha.js";
 import {anti_recaptcha} from "./anti-captcha/recaptcha.js";
-import {f_random_number} from "./random/number.js";
+import {obtain_val} from "./utilities/obtain_val.js";
+import {insert_val} from "./utilities/insert_val.js";
 
 function base_domain() { return domain; } // Provides the basis for the project
 
@@ -67,7 +69,7 @@ function import_library(url, callback, tipo) {
     Example: click('button#id-del-boton.class-del-boton.otra-class-del-boton'); // returns true if you click, false if you don't.
 */
 function click(identificador) {
-    click_humano(identificador);
+    click_human(identificador);
 }
 
 /*Obtain the value of a web element.
@@ -76,19 +78,7 @@ function click(identificador) {
     Example: var dato=obtain('input#id-del-input.class-del-input.otra-class-del-input','html');
 */
 function obtain(identificador, tipo) {
-    var x, i;
-    if (tipo == null) { tipo = 'html'; }
-    x = document.querySelectorAll(identificador);
-    if (x.length == 0) { console.log('Error: obtain(identificador,texto); No se pudo encontrar el identificador ' + identificador + ' .'); } else {
-        if (tipo == 'html') { return x[0].outerHTML.trim(); }
-        if (tipo == 'val') {
-            if (x[0].innerText != '') {
-                return x[0].innerText.trim();
-            } else {
-                return x[0].value.trim();
-            }
-        }
-    }
+    return obtain_val(identificador, tipo);
 }
 
 /*Enter a value for a web element.
@@ -97,22 +87,7 @@ function obtain(identificador, tipo) {
     Example: insert('input','Text inserted in all web inputs',true);
 */
 function insert(identificador, texto, masivo) {
-    var x, i;
-    if (texto == null) {
-        console.log('Error: insert(identificador,texto); El valor texto es null.');
-        texto = '';
-    }
-    if (masivo == null) { masivo = false; }
-    x = document.querySelectorAll(identificador);
-    if (x.length == 0) { console.log('Error: insert(identificador,texto); No se pudo encontrar el identificador ' + identificador + ' .'); } else {
-        if (masivo == false) {
-            x[0].value = texto;
-        } else {
-            for (i = 0; i < x.length; i++) {
-                x[i].value = texto;
-            }
-        }
-    }
+    insert_val(identificador, texto, masivo);
 }
 
 /*The following example allows you to inject an element into the web.

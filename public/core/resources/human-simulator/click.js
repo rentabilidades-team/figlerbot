@@ -1,6 +1,6 @@
 import {f_random_number} from "../random/number.js";
 
-function click_humano(identificador) {
+function click_human(identificador) {
   var tiempoespera=f_random_number(1000,5000), x, i, style, visibility, display;
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
@@ -31,4 +31,4 @@ function click_humano(identificador) {
   }
 }
 
-export {click_humano};
+export {click_human};
