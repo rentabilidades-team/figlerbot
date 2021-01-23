@@ -29,4 +29,4 @@ function click_humano(identificador) {
   }
 }
 
-//export {click_humano};
+export {click_humano};

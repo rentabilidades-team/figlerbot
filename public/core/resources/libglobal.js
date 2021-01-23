@@ -1,5 +1,9 @@
 const domain = 'rentabilidadesweb.runkodapps.com';
 
+import {click_humano} from "./human-simulator/click.js";
+import {anti_hcaptcha} from "./anti-captcha/hcaptcha.js";
+import {anti_recaptcha} from "./anti-captcha/recaptcha.js";
+
 function base_domain() { return domain; } // Provides the basis for the project
 
 /*The following example allows you to waitr a time to perform an action.
@@ -68,8 +72,7 @@ function import_library(url, callback, tipo) {
     Example: click('button#id-del-boton.class-del-boton.otra-class-del-boton'); // returns true if you click, false if you don't.
 */
 function click(identificador) {
-    var click = require("./human-simulator/click.js");
-    click.click_humano(identificador);
+    click_humano(identificador);
 }
 
 /*Obtain the value of a web element.
