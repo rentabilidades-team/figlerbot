@@ -1,11 +1,12 @@
 const domain = 'rentabilidadesweb.runkodapps.com';
 
-import {f_random_number} from "./random/number.js";
+import {random} from "./random/number.js";
 import {click_human} from "./human-simulator/click.js";
 import {anti_hcaptcha} from "./anti-captcha/hcaptcha.js";
 import {anti_recaptcha} from "./anti-captcha/recaptcha.js";
 import {obtain_val} from "./utilities/obtain_val.js";
 import {insert_val} from "./utilities/insert_val.js";
+import {import_library_func} from "./utilities/import_library_func.js";
 
 function base_domain() { return domain; } // Provides the basis for the project
 
@@ -37,7 +38,7 @@ function load_wait(funcion) {
     Example: var num=random_number(1,5); // return a random number between number 1 and 5
 */
 function random_number(min, max) {
-    return f_random_number(min, max);
+    return random(min, max);
 }
 
 /*The following example allows you to import libraries into the module. 
@@ -55,14 +56,7 @@ function random_number(min, max) {
     }
 */
 function import_library(url, callback, tipo) {
-    if (tipo == null) { tipo = 'text/javascript'; }
-    if (url == null) { console.log('Error: import_library(url,callback); El valor url es null.'); } else {
-        var s = document.createElement("script");
-        if (callback != null) { s.onload = callback; }
-        s.type = tipo;
-        s.src = url;
-        document.querySelector("head").appendChild(s);
-    }
+    import_library_func(url, callback, tipo);
 }
 
 /*The following example allows you to make a click with human simulation.
@@ -96,26 +90,11 @@ function insert(identificador, texto, masivo) {
     Example: inject('form','<input type="hidden" name="name" value="1">',true); //Inverted in all forms
 */
 function inject(identificador, texto, masivo) {
-    var x, i;
-    if (texto == null) {
-        console.log('Error: insert(identificador,texto); El valor texto es null.');
-        texto = '';
-    }
-    if (masivo == null) { masivo = false; }
-    x = document.querySelectorAll(identificador);
-    if (x.length == 0) { console.log('Error: insert(identificador,texto); No se pudo encontrar el elemento ' + identificador + ' .'); } else {
-        if (masivo == false) {
-            x[0].insertAdjacentHTML("afterbegin", texto);
-        } else {
-            for (i = 0; i < x.length; i++) {
-                x[i].insertAdjacentHTML("afterbegin", texto);
-            }
-        }
-    }
+    insert_html(identificador, texto, masivo);
 }
 
 /*The following example allows you to add an event to the page.
-    Example: gregar_event(window, 'load', function(){funcion()});
+    Example: add_event(window, 'load', function(){funcion()});
     function function() {
           // Here the script
     }

@@ -1,4 +1,4 @@
-function f_random_number(min, max) {
+function random(min, max) {
     if (min == null || max == null) { console.log('Error: random_number(min,max); El valor min o max es null.'); } else {
         try {
             min = parseInt(min);
@@ -8,4 +8,4 @@ function f_random_number(min, max) {
     }
 }
 
-export {f_random_number};
+export {random};
