@@ -1,5 +1,7 @@
+import {f_random_number} from "../random/number.js";
+
 function click_humano(identificador) {
-  var tiempoespera=numero_aleatorio(1000,5000), x, i, style, visibility, display;
+  var tiempoespera=f_random_number(1000,5000), x, i, style, visibility, display;
   x = document.querySelectorAll(identificador);
   if(x.length==0){console.log('Click ignorado: click(identificador); No se pudo encontrar el elemento '+identificador+' .');}
   else{

@@ -3,6 +3,7 @@ const domain = 'rentabilidadesweb.runkodapps.com';
 import {click_humano} from "./human-simulator/click.js";
 import {anti_hcaptcha} from "./anti-captcha/hcaptcha.js";
 import {anti_recaptcha} from "./anti-captcha/recaptcha.js";
+import {f_random_number} from "./random/number.js";
 
 function base_domain() { return domain; } // Provides the basis for the project
 
@@ -34,13 +35,7 @@ function load_wait(funcion) {
     Example: var num=random_number(1,5); // return a random number between number 1 and 5
 */
 function random_number(min, max) {
-    if (min == null || max == null) { console.log('Error: random_number(min,max); El valor min o max es null.'); } else {
-        try {
-            min = parseInt(min);
-            max = parseInt(max);
-        } catch (e) { console.log(e); }
-        return Math.floor((Math.random() * max) + min);
-    }
+    return f_random_number(min, max);
 }
 
 /*The following example allows you to import libraries into the module. 
@@ -307,16 +302,11 @@ function get_cookie(cname) {
 */
 
 function anti_captcha(num) {
-    var captcha;
     if (document.body.parentElement.innerHTML.search('recaptcha') >= 0 && document.body.parentElement.innerHTML.search('api.js') >= 0) { //Recaptcha detectado
-        captcha = require("./anti-captcha/recaptcha.js");
-        //import { anti_recaptcha } from "./anti-captcha/recaptcha.js";
-        captcha.anti_recaptcha(num);
+        anti_recaptcha(num);
     }
     if (document.body.parentElement.innerHTML.search('hcaptcha.com') >= 0 && document.body.parentElement.innerHTML.search('api.js') >= 0) { //Hcaptcha detectado
-        captcha = require("./anti-captcha/hcaptcha.js");
-        //import { anti_hcaptcha } from "./anti-captcha/hcaptcha.js";
-        captcha.anti_hcaptcha(num);
+        anti_hcaptcha(num);
     }
 }
 
