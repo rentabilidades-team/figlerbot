@@ -22,7 +22,7 @@ import {obtain_val} from "./utilities/obtain_val.js";
 import {insert_val} from "./utilities/insert_val.js";
 import {import_library_func} from "./utilities/import_library_func.js";
 import {hide_html} from "./utilities/hide_html.js";
-import {insert_html} from "./utilities/inject_html.js";
+import {inject_html} from "./utilities/inject_html.js";
 
 
 
