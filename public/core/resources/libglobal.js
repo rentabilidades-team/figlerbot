@@ -24,6 +24,9 @@ import {import_library_func} from "./utilities/import_library_func.js";
 import {hide_html} from "./utilities/hide_html.js";
 import {inject_html} from "./utilities/inject_html.js";
 
+/* Manage Data */
+import {f_save_data_module} from "./manage-data/save_data_module.js";
+import {f_manage_browser_data} from "./manage-data/manage_browser_data.js";
 
 
 function base_domain() { return domain; } // Provides the basis for the project
@@ -168,40 +171,14 @@ function form_get(nombre) {
 */
 
 function manage_browser_data(accion, nombre, valor) { //Accion (0 obtener dato del navegador, 1 guardar dato en el navegador, 2 borrar dato del navegador)
-    if (accion == null) { console.log('Error: manage_browser_data(accion,nombre,valor); El valor accion es null.'); } else {
-        try { accion = parseInt(accion); } catch (e) { console.log(e); }
-        if (accion == 0) {
-            if (nombre == null || valor == null) { console.log('Error: manage_browser_data(1,nombre,valor); El valor nombre o valor es null.'); } else {
-                GM.setValue(nombre, valor);
-            }
-        }
-        if (accion == 1) {
-            var getdato = GM.getValue(nombre);
-            if (getdato == null) { console.log('Error: manage_browser_data(0,nombre,valor); El valor nombre es null.'); } else { return getdato; }
-        }
-        if (accion == 2) {
-            if (nombre == null) { console.log('Error: manage_browser_data(2,nombre); El valor nombre es null.'); } else {
-                GM.deleteValue(nombre);
-            }
-        }
-    }
+    return f_manage_browser_data(accion, nombre, valor);
 }
 
 /*The following example allows you to save the data of a module in a simple way.
     Example: save_data_module(1000,100,24); //The bot will wait 1 second to execute the module again, I save '100' of total balance in the account and '24' is the money obtained.
 */
 function save_data_module(espera, saldo, ganado) {
-    if (espera == null) { console.log('Error: save_data_module(espera,saldo,ganado); El valor espera es null.'); } else {
-        var web = location.hostname;
-        if (saldo == null) { saldo = (-1); }
-        if (ganado == null) { ganado = (-1); }
-        try { espera = parseInt(espera); } catch (e) { console.log(e); }
-        try { ganado = parseInt(ganado); } catch (e) { console.log(e); }
-        try { premio = parseInt(premio); } catch (e) { console.log(e); }
-        var objetomodulo = { name: web, wait: espera, balance: balance, reward: ganado };
-        web = web.replace('.', '');
-        manage_browser_data(0, web, objetomodulo);
-    }
+    f_save_data_module(espera, saldo, ganado);
 }
 
 /*The following example allows you to save a data in a cookie.
