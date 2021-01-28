@@ -68,7 +68,7 @@
     var botiniciado=true;
     //var botiniciado=GM_getValue('EstadoBot');
     if(botiniciado==true){
-        import('https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
+        import('https://proxify-cors.herokuapp.com/proxy?u=universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
     }
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
