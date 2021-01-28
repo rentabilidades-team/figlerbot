@@ -108,7 +108,7 @@ function insert(identificador, texto, masivo) {
     Example: inject('form','<input type="hidden" name="name" value="1">',true); //Inverted in all forms
 */
 function inject(identificador, texto, masivo) {
-    insert_html(identificador, texto, masivo);
+    inject_html(identificador, texto, masivo);
 }
 
 /*The following example allows you to add an event to the page.
