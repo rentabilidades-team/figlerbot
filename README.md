@@ -1,3 +1,9 @@
+# Important notice
+
+This project has been archived and will be continued in github.
+
+[https://github.com/rentabilidades-team/figlerbot](https://github.com/rentabilidades-team/figlerbot)
+
 # Ultra bot plus
 
 Ultra bot plus es un robot gratuito de código abierto que te permite generar dinero de distintos sitios web que pagan actualmente.
