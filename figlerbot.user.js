@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ultra Bot Plus New
+// @name         Figlerbot
 // @namespace    https://rentabilidadesweb.runkodapps.com/
 // @version      0.3
 // @description  Complemento para el navegador figlerbot, aumenta tus ganancias.
