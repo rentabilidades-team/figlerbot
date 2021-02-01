@@ -1,35 +1,28 @@
-# Important notice
+# Figlerbot
 
-This project has been archived and will be continued in github.
+Figlerbot is a free open source robot that allows you to generate money from different websites that currently pay.
 
-[https://github.com/rentabilidades-team/figlerbot](https://github.com/rentabilidades-team/figlerbot)
+**Features:**
+- The boot is 100% real, 100% configurable, it runs on your browser.
+- No investment required (We appreciate your [donations](https://rentabilidadesweb.runkodapps.com/donaciones)).
+- It does not damage the websites economically (the advertising is not blocked).
+- Constant updates.
+- Human behaviour.
 
-# Ultra bot plus
-
-Ultra bot plus es un robot gratuito de código abierto que te permite generar dinero de distintos sitios web que pagan actualmente.
-
-**Caracterícas:**
-- El bot es 100% real, 100% configurable, se ejecuta en tu navegador.
-- No requiere inversión (Agradecemos vuestras [donaciones](https://rentabilidadesweb.runkodapps.com/donaciones)).
-- No daña economícamente a las webs (No se bloquea la publicidad).
-- Actualizaciones constantes.
-- Comportamiento humano.
-
-**Futuras caracteristicas:**
-- Auto-acortadores de enlaces.
+**Features futures:**
+- Auto-shortlinks.
 - Auto-captchas.
 
-# Instalación paso a paso
+# Installation
 
-1 - Instala el complemento "[Tampermonkey](https://www.tampermonkey.net/)" en tu navegador.
+1 - Install "[Tampermonkey](https://www.tampermonkey.net/)" extension in your browser.
 
-2 - Instala [nuestro script](https://universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js) en tu ordenador.
+2 - Install [Our script](https://universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js) on your computer.
 
-# Ejecución del bot
+# Execution of the bot
 
-Tras realizar la instación, podrás ejecutar el bot desde la web [rentabilidadesweb.runkodapps.com](https://rentabilidadesweb.runkodapps.com/).
+After installation, you can run the bot from the web [rentabilidadesweb.runkodapps.com](https://rentabilidadesweb.runkodapps.com/).
 
-# Financiación
+# Financing
 
-El proyecto se monetiza con la publicidad que se muestra en la web, si lo deseas, también puedes realizar [donaciones](https://rentabilidadesweb.runkodapps.com/donaciones).
-
+The project is monetized with the advertising displayed on the web, if you wish, you can also perform [donations](https://rentabilidadesweb.runkodapps.com/donaciones).
