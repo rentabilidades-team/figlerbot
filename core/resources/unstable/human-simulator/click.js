@@ -1,4 +1,5 @@
 import { random_numbers } from "../random/number.js";
+import { wait } from "../libglobal.js";
 
 function click_human(identificador) {
   var tiempoespera = random_numbers(1000, 5000),
