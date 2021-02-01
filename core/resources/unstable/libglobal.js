@@ -1,46 +1,53 @@
-const domain = 'rentabilidadesweb.runkodapps.com';
+const domain = "rentabilidadesweb.runkodapps.com";
 
 /* Number random*/
-import {random_numbers} from "./random/number.js";
+import { random_numbers } from "./random/number.js";
 
 /* Form Get*/
-import {f_get} from "./form/get.js";
+import { f_get } from "./form/get.js";
 
 /* Human-simulator */
-import {click_human} from "./human-simulator/click.js";
+import { click_human } from "./human-simulator/click.js";
 
 /* Captcha */
-import {anti_hcaptcha} from "./anti-captcha/hcaptcha.js";
-import {anti_recaptcha} from "./anti-captcha/recaptcha.js";
+import { anti_hcaptcha } from "./anti-captcha/hcaptcha.js";
+import { anti_recaptcha } from "./anti-captcha/recaptcha.js";
 
 /* Cookies */
-import {add_cookies} from "./cookies/add_cookies.js";
-import {get_cookies} from "./cookies/get_cookies.js";
+import { add_cookies } from "./cookies/add_cookies.js";
+import { get_cookies } from "./cookies/get_cookies.js";
 
 /* Utilities */
-import {obtain_val} from "./utilities/obtain_val.js";
-import {insert_val} from "./utilities/insert_val.js";
-import {import_library_func} from "./utilities/import_library_func.js";
-import {hide_html} from "./utilities/hide_html.js";
-import {inject_html} from "./utilities/inject_html.js";
+import { obtain_val } from "./utilities/obtain_val.js";
+import { insert_val } from "./utilities/insert_val.js";
+import { import_library_func } from "./utilities/import_library_func.js";
+import { hide_html } from "./utilities/hide_html.js";
+import { inject_html } from "./utilities/inject_html.js";
 
 /* Manage Data */
-import {f_save_data_module} from "./manage-data/save_data_module.js";
-import {f_manage_browser_data} from "./manage-data/manage_browser_data.js";
+import { f_save_data_module } from "./manage-data/save_data_module.js";
+import { f_manage_browser_data } from "./manage-data/manage_browser_data.js";
 
-
-function base_domain() { return domain; } // Provides the basis for the project
+function base_domain() {
+  return domain;
+} // Provides the basis for the project
 
 /*The following example allows you to waitr a time to perform an action.
   Example:await wait(1000); // Wait 1 second
 */
 function wait(ms) {
-    if (ms == null) { console.log('Error: wait(ms); El valor ms es null'); } else {
-        try { ms = parseInt(ms); } catch (e) { console.log(e); }
-        return new Promise(function(resolve) {
-            setTimeout(resolve, ms);
-        });
+  if (ms == null) {
+    console.log("Error: wait(ms); El valor ms es null");
+  } else {
+    try {
+      ms = parseInt(ms);
+    } catch (e) {
+      console.log(e);
     }
+    return new Promise(function (resolve) {
+      setTimeout(resolve, ms);
+    });
+  }
 }
 
 /*The following example allows you to execute a script when loading the page.
@@ -50,16 +57,20 @@ function wait(ms) {
   }
 */
 function load_wait(funcion) {
-    if (funcion == null) { console.log('Error: load_wait(funcion); El valor funcion es null'); } else {
-        window.onload = function() { funcion };
-    }
+  if (funcion == null) {
+    console.log("Error: load_wait(funcion); El valor funcion es null");
+  } else {
+    window.onload = function () {
+      funcion;
+    };
+  }
 }
 
 /*The following example allows you to generate a random number.
     Example: var num=random_number(1,5); // return a random number between number 1 and 5
 */
 function random_number(min, max) {
-    return random_numbers(min, max);
+  return random_numbers(min, max);
 }
 
 /*The following example allows you to import libraries into the module. 
@@ -77,14 +88,14 @@ function random_number(min, max) {
     }
 */
 function import_library(url, callback, tipo) {
-    import_library_func(url, callback, tipo);
+  import_library_func(url, callback, tipo);
 }
 
 /*The following example allows you to make a click with human simulation.
     Example: click('button#id-del-boton.class-del-boton.otra-class-del-boton'); // returns true if you click, false if you don't.
 */
 function click(identificador) {
-    click_human(identificador);
+  click_human(identificador);
 }
 
 /*Obtain the value of a web element.
@@ -93,7 +104,7 @@ function click(identificador) {
     Example: var dato=obtain('input#id-del-input.class-del-input.otra-class-del-input','html');
 */
 function obtain(identificador, tipo) {
-    return obtain_val(identificador, tipo);
+  return obtain_val(identificador, tipo);
 }
 
 /*Enter a value for a web element.
@@ -102,7 +113,7 @@ function obtain(identificador, tipo) {
     Example: insert('input','Text inserted in all web inputs',true);
 */
 function insert(identificador, texto, masivo) {
-    insert_val(identificador, texto, masivo);
+  insert_val(identificador, texto, masivo);
 }
 
 /*The following example allows you to inject an element into the web.
@@ -111,7 +122,7 @@ function insert(identificador, texto, masivo) {
     Example: inject('form','<input type="hidden" name="name" value="1">',true); //Inverted in all forms
 */
 function inject(identificador, texto, masivo) {
-    inject_html(identificador, texto, masivo);
+  inject_html(identificador, texto, masivo);
 }
 
 /*The following example allows you to add an event to the page.
@@ -121,13 +132,13 @@ function inject(identificador, texto, masivo) {
     }
 */
 function add_event(elemento, evento, funcion) {
-    if (elemento.addEventListener) {
-        elemento.addEventListener(evento, funcion, false);
-    } else {
-        if (elemento.attachEvent) {
-            elemento.attachEvent('on' + evento, funcion);
-        }
+  if (elemento.addEventListener) {
+    elemento.addEventListener(evento, funcion, false);
+  } else {
+    if (elemento.attachEvent) {
+      elemento.attachEvent("on" + evento, funcion);
     }
+  }
 }
 
 /*The following example allows you to hide or conceal web content.
@@ -136,7 +147,7 @@ function add_event(elemento, evento, funcion) {
     Example: hide('div#id-del-div.class-del-div.otra-class-del-div',false);
 */
 function hide(identificador, masivo) {
-    hide_html(identificador, masivo);
+  hide_html(identificador, masivo);
 }
 
 /*The following example allows you to close your module.
@@ -145,13 +156,24 @@ function hide(identificador, masivo) {
     Example: close_module(true);
 */
 function close_module(valor) {
-    setInterval(function() {
-        if (document.readyState === "complete") { //Página cargada completamente
-            if (valor == null) { valor = false; }
-            if (valor == false) { try { window.close(); } catch (e) { console.log(e); } }
-            if (valor == true) { window.location.href = '//' + domain + '/tarea-finalizada'; }
+  setInterval(function () {
+    if (document.readyState === "complete") {
+      //Página cargada completamente
+      if (valor == null) {
+        valor = false;
+      }
+      if (valor == false) {
+        try {
+          window.close();
+        } catch (e) {
+          console.log(e);
         }
-    }, 500);
+      }
+      if (valor == true) {
+        window.location.href = "//" + domain + "/tarea-finalizada";
+      }
+    }
+  }, 500);
 }
 
 /*The following example allows you to get any "get" variable from the url.
@@ -159,7 +181,7 @@ function close_module(valor) {
     Example: var data = form_get('hello'); // You receive the 1 of the url
 */
 function form_get(nombre) {
-    return f_get(nombre);
+  return f_get(nombre);
 }
 
 /*The following example allows you to save a data in the browser.
@@ -170,15 +192,16 @@ function form_get(nombre) {
     Example: manage_browser_data(2, 'dato1'); // Delete 'dato1' and the 'dato1 value' from the browser.
 */
 
-function manage_browser_data(accion, nombre, valor) { //Accion (0 obtener dato del navegador, 1 guardar dato en el navegador, 2 borrar dato del navegador)
-    return f_manage_browser_data(accion, nombre, valor);
+function manage_browser_data(accion, nombre, valor) {
+  //Accion (0 obtener dato del navegador, 1 guardar dato en el navegador, 2 borrar dato del navegador)
+  return f_manage_browser_data(accion, nombre, valor);
 }
 
 /*The following example allows you to save the data of a module in a simple way.
     Example: save_data_module(1000,100,24); //The bot will wait 1 second to execute the module again, I save '100' of total balance in the account and '24' is the money obtained.
 */
 function save_data_module(espera, saldo, ganado) {
-    f_save_data_module(espera, saldo, ganado);
+  f_save_data_module(espera, saldo, ganado);
 }
 
 /*The following example allows you to save a data in a cookie.
@@ -190,14 +213,14 @@ function save_data_module(espera, saldo, ganado) {
 */
 
 function add_cookie(cname, cvalue, exdays) {
-    add_cookies(cname, cvalue, exdays);
+  add_cookies(cname, cvalue, exdays);
 }
 
 /*The following example allows you to receive the value of a cookie.
     Example: var value=get_cookie('cookie1');
 */
 function get_cookie(cname) {
-    get_cookies(cname);
+  return get_cookies(cname);
 }
 
 /*The following example allows you to try to solve the captcha. (Requires the user to install some plug-ins in their browser, Requires import click)
@@ -208,12 +231,39 @@ function get_cookie(cname) {
 */
 
 function anti_captcha(num) {
-    if (document.body.parentElement.innerHTML.search('recaptcha') >= 0 && document.body.parentElement.innerHTML.search('api.js') >= 0) { //Recaptcha detectado
-        anti_recaptcha(num);
-    }
-    if (document.body.parentElement.innerHTML.search('hcaptcha.com') >= 0 && document.body.parentElement.innerHTML.search('api.js') >= 0) { //Hcaptcha detectado
-        anti_hcaptcha(num);
-    }
+  if (
+    document.body.parentElement.innerHTML.search("recaptcha") >= 0 &&
+    document.body.parentElement.innerHTML.search("api.js") >= 0
+  ) {
+    //Recaptcha detectado
+    anti_recaptcha(num);
+  }
+  if (
+    document.body.parentElement.innerHTML.search("hcaptcha.com") >= 0 &&
+    document.body.parentElement.innerHTML.search("api.js") >= 0
+  ) {
+    //Hcaptcha detectado
+    anti_hcaptcha(num);
+  }
 }
 
-export { base_domain, wait, load_wait, random_number, import_library, click, obtain, insert, inject, add_event, hide, close_module, form_get, manage_browser_data, save_data_module, add_cookie, get_cookie, anti_captcha };
+export {
+  base_domain,
+  wait,
+  load_wait,
+  random_number,
+  import_library,
+  click,
+  obtain,
+  insert,
+  inject,
+  add_event,
+  hide,
+  close_module,
+  form_get,
+  manage_browser_data,
+  save_data_module,
+  add_cookie,
+  get_cookie,
+  anti_captcha,
+};
