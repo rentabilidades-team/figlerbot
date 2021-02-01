@@ -27,7 +27,7 @@
 // @include      http*://free-tron.com/*
 // @include      http*://free-ltc.com/*
 // @include      http*://freedash.io/*
-// @include      http*://freechain.link/*
+// @include      http*://freechainlink.io/*
 // @include      http*://freeneo.io/*
 // @include      http*://bigfreegiveaway.com/*
 // @include      http*://webflex24.com/*
@@ -62,28 +62,29 @@
 // @grant        GM_deleteValue
 // ==/UserScript==
 
-const unstable_mode=false;//Set to true to activate unstable mode.
+const unstable_mode = false; //Set to true to activate unstable mode.
 
-(function() {
-    'use strict';
-    
-    var url, startbot=true;//startbot=GM_getValue('EstadoBot');
-    
-    /*Stable or unstable mode*/
-    if(unstable_mode==true){
-        url='https://rentabilidades-team.github.io/figlerbot/modules/unstable/';
-    }else{
-        url='https://rentabilidades-team.github.io/figlerbot/modules/stable/';
-    }
-    
-    /*Start of figlerbot*/
-    if(startbot==true){
-        import(url+location.hostname+'.js');
-    }
+(function () {
+  "use strict";
 
-/*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
+  var url,
+    startbot = true; //startbot=GM_getValue('EstadoBot');
 
-/*Shortlinks Pass
+  /*Stable or unstable mode*/
+  if (unstable_mode == true) {
+    url = "https://rentabilidades-team.github.io/figlerbot/modules/unstable/";
+  } else {
+    url = "https://rentabilidades-team.github.io/figlerbot/modules/stable/";
+  }
+
+  /*Start of figlerbot*/
+  if (startbot == true) {
+    import(url + location.hostname + ".js");
+  }
+
+  /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
+
+  /*Shortlinks Pass
     if(location.hostname.indexOf(".freebcc.org")>=0){
         window.location.href=$('button#makingdifferenttimer.btn-captchas').attr('onclick').replace(/ /g, "").substring(70).replace("');",'');
     }
