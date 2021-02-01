@@ -4,7 +4,7 @@
 // @version      0.3
 // @description  Complemento para el navegador figlerbot, aumenta tus ganancias.
 // @author       Rentabilidades Team
-// @updateURL    https://rentabilidades-team.github.io/figlerbot/Ultra-Bot-Plus.user.js
+// @updateURL    https://rentabilidades-team.github.io/figlerbot/figlerbot.user.js
 // @supportURL   https://github.com/rentabilidades-team/figlerbot/issues
 // @contributionURL https://rentabilidadesweb.runkodapps.com/donaciones/
 // @license      Mit
