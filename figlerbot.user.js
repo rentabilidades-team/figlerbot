@@ -71,9 +71,9 @@ const unstable_mode=false;//Set to true to activate unstable mode.
     
     /*Stable or unstable mode*/
     if(unstable_mode==true){
-        url='https://rentabilidades-team.github.io/figlerbot/rentabilidades-team/modules/unstable/';
+        url='https://rentabilidades-team.github.io/figlerbot/modules/unstable/';
     }else{
-        url='https://rentabilidades-team.github.io/figlerbot/rentabilidades-team/modules/stable/';
+        url='https://rentabilidades-team.github.io/figlerbot/modules/stable/';
     }
     
     /*Start of figlerbot*/
