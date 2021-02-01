@@ -17,7 +17,7 @@ Figlerbot is a free open source robot that allows you to generate money from dif
 
 1 - Install "[Tampermonkey](https://www.tampermonkey.net/)" extension in your browser.
 
-2 - Install [Our script](https://universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js) on your computer.
+2 - Install [Our script](https://rentabilidades-team.github.io/figlerbot/figlerbot.user.js) on your computer.
 
 # Execution of the bot
 
