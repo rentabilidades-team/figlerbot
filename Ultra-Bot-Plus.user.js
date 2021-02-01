@@ -2,10 +2,10 @@
 // @name         Ultra Bot Plus New
 // @namespace    https://rentabilidadesweb.runkodapps.com/
 // @version      0.3
-// @description  Complemento para el navegador del Ultra Bot Plus, aumenta tus ganancias.
+// @description  Complemento para el navegador figlerbot, aumenta tus ganancias.
 // @author       Rentabilidades Team
-// @updateURL    https://universales.gitlab.io/rentabilidades-team/Ultra-Bot-Plus.user.js
-// @supportURL   https://gitlab.com/universales/rentabilidades-team/-/issues
+// @updateURL    https://rentabilidades-team.github.io/figlerbot/Ultra-Bot-Plus.user.js
+// @supportURL   https://github.com/rentabilidades-team/figlerbot/issues
 // @contributionURL https://rentabilidadesweb.runkodapps.com/donaciones/
 // @license      Mit
 // @compatible   Compatible con firefox, chrome, opera y safari.
@@ -62,13 +62,23 @@
 // @grant        GM_deleteValue
 // ==/UserScript==
 
+const unstable_mode=false;//Set to true to activate unstable mode.
+
 (function() {
     'use strict';
     
-    var botiniciado=true;
-    //var botiniciado=GM_getValue('EstadoBot');
-    if(botiniciado==true){
-        import('https://cors-anywhere.herokuapp.com/universales.gitlab.io/rentabilidades-team/modulos/'+location.hostname+'.js');
+    var url, startbot=true;//startbot=GM_getValue('EstadoBot');
+    
+    /*Stable or unstable mode*/
+    if(unstable_mode==true){
+        url='https://rentabilidades-team.github.io/figlerbot/rentabilidades-team/modules/unstable/';
+    }else{
+        url='https://rentabilidades-team.github.io/figlerbot/rentabilidades-team/modules/stable/';
+    }
+    
+    /*Start of figlerbot*/
+    if(startbot==true){
+        import(url+location.hostname+'.js');
     }
 
 /*Todo lo mostrado a continuación forma parte de la versión antigua del bot, próximamente se irán implementando mejoras.*/
