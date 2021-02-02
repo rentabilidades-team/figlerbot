@@ -1,4 +1,5 @@
 var set_branch;
+console.log(document.location.pathname);
 if(document.location.pathname.search("unstable")>0){
   set_branch='unstable';
 }else{
