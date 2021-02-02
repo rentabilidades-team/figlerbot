@@ -1,7 +1,7 @@
 import {
   load_wait,
   click,
-  ait,
+  wait,
   close_module,
 } from "../../core/resources/unstable/libglobal.js";
 
