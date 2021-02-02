@@ -1,3 +1,11 @@
+function stable_or_unstable() {
+  if(document.location.pathname.search("unstable")>0){
+    return 'unstable';
+  }else{
+    return 'stable';
+  }
+}
+
 import {
   click,
   wait,
@@ -5,7 +13,7 @@ import {
   add_cookie,
   close_module,
   anti_captcha,
-} from "../../../core/resources/unstable/libglobal.js";
+} from "../../../core/resources/"+stable_or_unstable()+"/libglobal.js";
 
 async function template() {
   /*AutoLogin*/
