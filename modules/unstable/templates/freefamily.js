@@ -1,9 +1,8 @@
-function stable_or_unstable() {
-  if(document.location.pathname.search("unstable")>0){
-    return 'unstable';
-  }else{
-    return 'stable';
-  }
+var set_branch;
+if(document.location.pathname.search("unstable")>0){
+  set_branch='unstable';
+}else{
+  set_branch='stable';
 }
 
 import {
@@ -13,7 +12,7 @@ import {
   add_cookie,
   close_module,
   anti_captcha,
-} from "../../../core/resources/"+stable_or_unstable()+"/libglobal.js";
+} from "../../../core/resources/"+set_branch+"/libglobal.js";
 
 async function template() {
   /*AutoLogin*/
