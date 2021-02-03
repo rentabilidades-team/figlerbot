@@ -8,7 +8,7 @@ function get_branch() {
   }
 }
 url_source=get_branch();
-url_source="../../../core/resources/"+url_source+"/libglobal.js":
+url_source="../../../core/resources/"+url_source+"/libglobal.js";
 
 import {
   click,
