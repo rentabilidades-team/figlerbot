@@ -10,6 +10,8 @@ function get_branch() {
 url_source=get_branch();
 url_source="../../../core/resources/"+url_source+"/libglobal.js";
 
+console.log(url_source);
+
 import {
   click,
   wait,
