@@ -1,10 +1,14 @@
-var set_branch;
-console.log(document.currentScript.location.pathname);
-if(document.currentScript.location.pathname.search("unstable")>0){
-  set_branch='unstable';
-}else{
-  set_branch='stable';
+var url_source;
+
+function get_branch() {
+  if(document.currentScript.location.pathname.search("unstable")>0){
+    return 'unstable';
+  }else{
+    return 'stable';
+  }
 }
+url_source=get_branch();
+url_source="../../../core/resources/"+url_source+"/libglobal.js":
 
 import {
   click,
@@ -13,7 +17,7 @@ import {
   add_cookie,
   close_module,
   anti_captcha,
-} from "../../../core/resources/"+set_branch+"/libglobal.js";
+} from url_source;
 
 async function template() {
   /*AutoLogin*/
