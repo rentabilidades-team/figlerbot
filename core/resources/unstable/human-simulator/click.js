@@ -1,8 +1,7 @@
-import { random_numbers } from "../random/number.js";
-import { wait } from "../libglobal.js";
+import { random_number, wait } from "../libglobal.js";
 
 function click_human(identificador) {
-  var tiempoespera = random_numbers(1000, 5000),
+  var tiempoespera = random_number(1000, 5000),
     x,
     i,
     style,
@@ -35,7 +34,7 @@ function click_human(identificador) {
       console.log("Click ignorado: El boton está escondido.");
     }
     /* Acción click */
-    wait(tiempoespera);
+    await wait(tiempoespera);
     if (x[i].disabled == false && visibility != "hidden" && display != "none") {
       x[i].click();
       x[i].disabled = true;
